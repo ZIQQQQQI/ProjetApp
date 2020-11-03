@@ -1,21 +1,42 @@
 package Model;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class Machine {
     public Integer codeM;
     public String numM;
-    public String etatM;
+
     public Integer codeS;
 
-    public Machine(Integer codeM, String numM, String etatM, Integer codeS) {
+    public Machine(Integer codeM, String numM,Integer codeS) {
         this.codeM = codeM;
         this.numM = numM;
-        this.etatM = etatM;
         this.codeS = codeS;
     }
 
     public Machine() {
+    }
+
+
+    //trouver list des machine de une salle
+    public ArrayList<Machine> trouerMachineLibre(Integer codeSalle){
+        ArrayList<Machine> list=new ArrayList<>();
+
+
+
+        return list;
+    }
+
+    //reserver une machine
+    public void reserverUneMachine(Integer perriode, Date date, Integer idU,Integer codeM){
+
+    }
+
+    //annuler une reserver de machine
+    public void annulerUneMachine(Integer perriode, Date date, Integer idU,Integer codeM){
+
     }
 
     public Integer getCodeM() {
@@ -34,13 +55,6 @@ public class Machine {
         this.numM = numM;
     }
 
-    public String getEtatM() {
-        return etatM;
-    }
-
-    public void setEtatM(String etatM) {
-        this.etatM = etatM;
-    }
 
     public Integer getCodeS() {
         return codeS;
@@ -55,7 +69,6 @@ public class Machine {
         return "Machine{" +
                 "codeM=" + codeM +
                 ", numM='" + numM + '\'' +
-                ", etatM='" + etatM + '\'' +
                 ", codeS=" + codeS +
                 '}';
     }
