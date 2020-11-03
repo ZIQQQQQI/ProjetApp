@@ -1,4 +1,4 @@
-<%--
+<%@ page import="Model.Utilisateur" %><%--
   Created by IntelliJ IDEA.
   User: woshi
   Date: 2020/11/3
@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
+
+
 <head>
     <title>Reservation Machine TP</title>
     <!-- Accepter les caractères spécieaux -->
@@ -40,12 +42,14 @@
             <li class="nav-item">
                 <a class="nav-link disabled" href="reclamation.html" style="color:#FFFFFF;">Réclamation</a>
             </li>
-
         </ul>
-        <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
+            <a class="nav-link disabled" href="" style="color:#ffffff;">Déconnexion</a>
     </div>
 </nav>
-
+<%
+    out.print("dfasgaf");
+    Utilisateur u =new Utilisateur();
+%>
 <div id="global">
     <!-- Création du bouton Ajouter PA -->
     <div id="creer">
@@ -91,6 +95,6 @@
             </tr>
         </table>
     </div>
-
+</div>
 </body>
 </html>
