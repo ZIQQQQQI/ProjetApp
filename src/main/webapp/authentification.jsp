@@ -21,7 +21,7 @@
 <div id="ombre">
     <h2>Plateforme de réservation d'une machine</h2>
     <!-- Défintion des champs pour l'identifiant et le mot de passe -->
-    <form method="" action="">
+    <form method="get" action="/GestionMachine/ServletLogin">
         <fieldset>
             <legend class="entete">Identifiant : </legend>
             <div class="input_container">
@@ -30,13 +30,14 @@
             </div>
         </fieldset>
 
-        <br/>
         <fieldset>
             <legend class="entete">Mot de passe : </legend>
             <div class="input_container">
                 <span class="input_icon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
                 <input type="password" name="motdepasse" placeholder="********" required />
             </div>
+        <br/>
+
         </fieldset>
 
         <br/>

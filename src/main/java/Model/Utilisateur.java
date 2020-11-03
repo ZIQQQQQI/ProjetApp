@@ -1,6 +1,12 @@
 package Model;
 
+import Outil.JDBCUtils;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import javax.print.DocFlavor;
+import javax.swing.event.ListDataListener;
+import java.util.List;
+import java.util.Map;
 
 public class Utilisateur {
     protected String identifiantU;
@@ -9,8 +15,17 @@ public class Utilisateur {
     protected  String prenomU;
     protected String typeU;
     protected Integer codeG;
+    protected JdbcTemplate jdbcTem;
 
     public Utilisateur() {
+        this.jdbcTem = new JdbcTemplate(JDBCUtils.getDataSource());
+
+    }
+
+    public boolean login(){
+        String sql = "select * from utilisateur where identifiantU =? and motdepasseU = ?";
+        List<Map<String,Object>> LIST= this.jdbcTem.queryForList(sql, this.identifiantU, this.motdepasseU);
+        return !LIST.isEmpty();
     }
 
     //set et get
