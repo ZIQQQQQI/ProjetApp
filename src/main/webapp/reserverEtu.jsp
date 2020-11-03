@@ -7,7 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 <head>
     <title>Reservation Machine TP</title>
@@ -32,69 +31,79 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+    <!--
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav mr-auto">
+               <li class="nav-item">
+                   <a class="nav-link disabled" href="accueil.html" style="color:#FFFFFF;">Mes reservations</a>
+               </              <li class="nav-item">
+                 --  <a class="nav-link disabled" href="reclamation.html" style="color:#FFFFFF;">Réclamation</a>
+                 </li> -->
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link disabled" href="accueil.html" style="color:#FFFFFF;">Mes reservations</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="reclamation.html" style="color:#FFFFFF;">Réclamation</a>
-            </li>
-
-        </ul>
-        <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
-    </div>
+    </ul>
+    <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
+    </div> -->
 </nav>
 
 <div id="global">
     <!-- Création du bouton Ajouter PA -->
     <div id="creer">
-        <button class="bouton" type="button" onclick="window.location.href = 'choisirDate.jsp';"> Réserver une machine </button>
+        <!-- <button class="bouton" type="button" onclick="window.location.href = 'reserver.html';"> Réserver une machine </button>
+         -->
     </div>
     <br/>
     <div id="titrePage">
         <!-- Titre du tableau-->
-        <h2>Liste des machines que j'ai réservé :</h2>
+        <h2>Liste des salles libre pour vous :</h2>
     </div>
+    <h3>Date que vous avez choisi:2020-10-31 8:00-9:30</h3>
+    <select>
+        <option value ="Me401">ME401</option>
+        <option value ="Me402">ME402</option>
+        <option value="Me403">Me403</option>
+        <option value="Me301">Me301</option>
+    </select>
 
+    <h3>
+        Attention!Votre salle est : ME401  Etat:Pas complet
+    </h3>
 
-
-
-
-
-
-
+    <h2>Liste des ordinateurs de cette salle  :</h2>
     <!-- Création du tableau-->
     <div id="conteneurTab">
         <table id="myTable">
             <tr class="header">
                 <th id="numM">Numéro machine</th>
                 <th id="numS">Numéro salle</th>
-                <th id="DateR">Date réservation </th>
-                <th id="HeureDebR">Heure Début </th><!--On a pas besoin? -->
-                <th id="HeureFinR">Heure Fin </th><!--On a pas besoin? -->
+                <th id="DateR">Nom_Etudiant </th>
+                <th id="HeureDebR">Promotion </th><!--On a pas besoin? -->
+                <th id="HeureFinR">Disponibilite </th><!--On a pas besoin? -->
+                <th id="">Heure limite </th>
+                <th class="annuler"></th>
                 <th class="annuler"></th>
             </tr>
             <!--Exemple de données. Il faut remplacer avec code java qui recupérer les vrais infos dans la bd-->
             <tr>
                 <td>A16763</td>
                 <td>ME401</td>
-                <td>2020-11-02</td>
-                <td>08:00</td>
-                <td>11:00</td>
+                <td>TANG</td>
+                <td>IPM-G1</td>
+                <td>Occupe</td>
+                <td>null</td>
                 <td>
-                    <button class="bouton" type="button"> Annuler</button>
+                    <button class="bouton" type="button"> Utiliser</button>
                 </td>
+
             </tr>
             <tr>
                 <td>A17671</td>
-                <td>ME402</td>
-                <td>2020-11-04</td>
-                <td>09:30</td>
-                <td>11:00</td>
+                <td>ME401</td>
+                <td>null</td>
+                <td>IPM-G2</td>
+                <td>Dispo</td>
+                <td>17:00</td>
                 <td >
-                    <button class="bouton" type="button"> Annuler</button>
+                    <button class="bouton" type="button"> Utiliser</button>
                 </td>
             </tr>
         </table>

@@ -4,11 +4,15 @@ import Model.Utilisateur;
 import Outil.JDBCUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 public class main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
 //        JdbcTemplate db=new JdbcTemplate(JDBCUtils.getDataSource());
 //        String sql="select* from allouer";
@@ -23,6 +27,7 @@ public class main {
 
 
         // utilisateur
+        /*
         JdbcTemplate db=new JdbcTemplate(JDBCUtils.getDataSource());
         String sql="select* from utilisateur";
         List<Utilisateur> list=db.query(sql,new BeanPropertyRowMapper<>(Utilisateur.class));
@@ -51,6 +56,18 @@ public class main {
         //afficher resultat machine
         for (Machine machine : listMachine) {
             System.out.println(machine);
+        }*/
+
+        Salle s=new Salle();
+        String date="2020-11-02";
+        SimpleDateFormat sdf=new SimpleDateFormat( "yyyy-MM-dd");
+        Date d=sdf.parse(date);
+        String sss=sdf.format(d);
+        System.out.println(sss);
+        List<Salle> list= s.trouveListeDeSalle(sss,5);
+        for (Salle sa:list
+             ) {
+            System.out.println(sa.getNumS());
         }
 
 
