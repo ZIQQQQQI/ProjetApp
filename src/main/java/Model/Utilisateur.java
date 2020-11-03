@@ -13,6 +13,8 @@ public class Utilisateur {
     public Utilisateur() {
     }
 
+    //set et get
+
     public String getIdentifiantU() {
         return identifiantU;
     }
