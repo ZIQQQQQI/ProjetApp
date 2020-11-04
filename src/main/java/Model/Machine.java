@@ -5,10 +5,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Machine {
-    public Integer codeM;
-    public String numM;
-
-    public Integer codeS;
+    protected Integer codeM;
+    protected String numM;
+    protected Integer codeS;
 
     public Machine(Integer codeM, String numM,Integer codeS) {
         this.codeM = codeM;

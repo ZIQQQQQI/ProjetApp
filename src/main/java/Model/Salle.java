@@ -10,11 +10,11 @@ import java.util.Date;
 import java.util.List;
 
 public class Salle {
-    public Integer codeS;
-    public String numS;
-    public String etatS;
-    public JdbcTemplate template;
-    public Salle(Integer codeS, String numS, String etatS) {
+    protected Integer codeS;
+    protected String numS;
+    protected String etatS;
+    protected JdbcTemplate template;
+    protected Salle(Integer codeS, String numS, String etatS) {
         this.codeS = codeS;
         this.numS = numS;
         this.etatS = etatS;
