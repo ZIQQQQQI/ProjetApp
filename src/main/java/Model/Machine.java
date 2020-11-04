@@ -43,9 +43,11 @@ public class Machine {
                 "not in(select r.codeM from reserver as r " +
                 "where r.date = '"+date+"' and r.periode = "+periode+")";
         return this.template.query(sql,new BeanPropertyRowMapper<Machine>(Machine.class));
+    }
 
-
-
+    public  void supprimerResM(String periode,String date,String idu,String idM){
+        String sql="delete from reserver  where identifiantU =? and codeM =? and date =? and periode = ?";
+        this.template.update(sql,idu,idM,date,periode);
     }
 
 
