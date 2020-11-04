@@ -41,16 +41,18 @@
     <button class="bouton" type="button" onclick="window.location.href = 'formAjoutEtu.html';"> Ajouter un étudiant </button>
     -->
 
-    <form name="consult" method="get" action="detailFormation.jsp">
+    <form name="consult" method="get" action="/GestionMachine/ServletConsulterFor<%--detailFormation.jsp--%>">
+        <h3>C'est juste un exemple, on liste des fonctionalites possibles pour des responsables.</h3>
         <h3>Consulter une formation:</h3>
         <label>Groupe: </label>
         <select name="selectFormation"> <%--utiliser rqt--%>
-            <option value="g1">Groupe 1</option>
-            <option value="g2">Groupe 2</option>
+            <option value="1">M2 IPM Groupe 1</option>
+            <option value="2">M2 IPM Groupe 2</option>
         </select>
         <input type="submit" name="submit" value="Consulter" class="bouton" />
     </form>
     <HR size="10">
+
 
     <form name="annulerCours" method="get" action="/GestionMachine/ServletAnnulerCours">
         <h3>Annuler un cours:</h3>
@@ -59,6 +61,7 @@
             <option value="1">TP groupe 1</option>
             <option value="2">TP groupe 2</option>
         </select>
+
 
         <label>Date: </label>
         <input type="date" id="dateCours" name="dateCours">

@@ -27,12 +27,10 @@ public class ServletLogin extends HttpServlet {
         if(user != null){
             HttpSession session = request.getSession(true);
             // String id = (String)session.getAttribute("id");
-
+            session.setAttribute("id", login);
             if(user.getTypeU().equals("etudiant")){
-                session.setAttribute("idEtu", login);
                 response.addHeader("refresh", "0,URL = /GestionMachine/accueil.jsp");
             }else if(user.getTypeU().equals("responsable")){
-                session.setAttribute("idResp", login);
                 response.addHeader("refresh", "0,URL = /GestionMachine/accueilResp.jsp");
             }
         }else {
