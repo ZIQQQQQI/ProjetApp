@@ -28,8 +28,13 @@ public class Machine {
     public Machine() {
         this.template=new JdbcTemplate(JDBCUtils.getDataSource());;
     }
-    //
+    //reserver une machine
+    public  void resMachine(String periode,String date,String idu,String idM){
 
+        String sql="insert into reserver(identifiantU, codeM,date, periode) " +
+                "values(?,?,?,?);";
+        this.template.update(sql,idu,idM,date,periode);
+    }
 
     //trouver list des machine de une salle
     public List<Machine> trouerMachineLibre(Integer codeSalle,String periode,String date){
@@ -43,10 +48,6 @@ public class Machine {
 
     }
 
-    //reserver une machine
-    public void reserverUneMachine(Integer perriode, Date date, Integer idU,Integer codeM){
-
-    }
 
     //annuler une reserver de machine
     public void annulerUneMachine(Integer perriode, Date date, Integer idU,Integer codeM){

@@ -37,7 +37,7 @@
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
            <ul class="navbar-nav mr-auto">
                <li class="nav-item">
-                   <a class="nav-link disabled" href="accueil.html" style="color:#FFFFFF;">Mes reservations</a>
+                   <a class="nav-link disabled" href="/GestionMachine/accueil.jsp" style="color:#FFFFFF;">Mes reservations</a>
                             <li class="nav-item">
                   <a class="nav-link disabled" href="reclamation.html" style="color:#FFFFFF;">Réclamation</a>
                  </li>
@@ -59,8 +59,16 @@
         <!-- Titre du tableau-->
         <h2>Liste des salles libre pour vous :</h2>
         <FORM action="/GestionMachine/ServletChercheSalle" method="get">
-            <select>
+            <%
+                String date=request.getParameter("date");
+                String periode=request.getParameter("periode");
+                out.print("<input name=date type=hidden value="+date+"></input>");
+                out.print("<input name=periode type=hidden value="+periode+"></input>");
+
+            %>
+            <select name="salle">
                 <%
+                    String id=(String)session.getAttribute("id");
                     List<Salle> list = (List<Salle>) request.getAttribute("list");
                     for (Salle salle : list) {
                         out.print("<option value="+salle.getCodeS()+">"+salle.getNumS()+"</option>");
@@ -96,18 +104,22 @@
             <!--Exemple de données. Il faut remplacer avec code java qui recupérer les vrais infos dans la bd-->
 
             <%
-                List<Machine> machine = (List<Machine>) request.getAttribute("machine");
+                List<Machine> machine;
+
+
+                machine = (List<Machine>) request.getAttribute("machine");
+
                 for (Machine m:machine
                      ) {
                     out.print("<tr><td>"+m.getNumM()+"</td>");
                     out.print("<td>Dispo</td>");
-                    out.print("<td><button class='bouton' type='button'> Utiliser</button></td></tr>");
+                    out.print("<td><a class='bouton' href=ServletResMachine?idM="+m.getCodeM()
+                            +"&date="+date+"&periode="+periode+"&idU="+id+"> Utiliser</a></td></tr>");
                 }
             %>
 
 
         </table>
-        <h1>test</h1>
     </div>
 
 </body>
