@@ -64,11 +64,11 @@ public class main {
         Date d=sdf.parse(date);
         String sss=sdf.format(d);
         System.out.println(sss);
-        List<Salle> list= s.trouveListeDeSalle(sss,5);
-        for (Salle sa:list
-             ) {
-            System.out.println(sa.getNumS());
-        }
+       // List<Salle> list= s.trouveListeDeSalle(sss,"5");
+       // for (Salle sa:list
+          //   ) {
+          //  System.out.println(sa.getNumS());
+       // }
 
 
     }

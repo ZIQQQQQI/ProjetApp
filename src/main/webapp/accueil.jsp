@@ -1,4 +1,7 @@
-<%@ page import="Model.Utilisateur" %><%--
+<%@ page import="Model.Utilisateur" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.List" %>
+<%@ page import="javax.sound.midi.Soundbank" %><%--
   Created by IntelliJ IDEA.
   User: woshi
   Date: 2020/11/3
@@ -47,14 +50,11 @@
             <a class="nav-link disabled" href="" style="color:#ffffff;">Déconnexion</a>
     </div>
 </nav>
-<%
-    out.print("dfasgaf");
-    Utilisateur u =new Utilisateur();
-%>
+
 <div id="global">
     <!-- Création du bouton Ajouter PA -->
     <div id="creer">
-        <button class="bouton" type="button" onclick="window.location.href = 'choisirDate.jsp';"> Réserver une machine </button>
+        <button class="bouton" type="button" onclick="window.location.href = '/GestionMachine/chosirDate.jsp';"> Réserver une machine </button>
     </div>
     <br/>
     <div id="titrePage">
@@ -73,34 +73,28 @@
     <div id="conteneurTab">
         <table id="myTable">
             <tr class="header">
-                <th id="numM">Numéro machine</th>
                 <th id="numS">Numéro salle</th>
+                <th id="numM">Numéro machine</th>
                 <th id="DateR">Date réservation </th>
-                <th id="HeureDebR">Heure Début </th><!--On a pas besoin? -->
-                <th id="HeureFinR">Heure Fin </th><!--On a pas besoin? -->
+                <th id="HeureDebR">Periode </th><!--On a pas besoin? -->
                 <th class="annuler"></th>
             </tr>
             <!--Exemple de données. Il faut remplacer avec code java qui recupérer les vrais infos dans la bd-->
-            <tr>
-                <td>A16763</td>
-                <td>ME401</td>
-                <td>2020-11-02</td>
-                <td>08:00</td>
-                <td>11:00</td>
-                <td>
-                    <button class="bouton" type="button"> Annuler</button>
-                </td>
-            </tr>
-            <tr>
-                <td>A17671</td>
-                <td>ME402</td>
-                <td>2020-11-04</td>
-                <td>09:30</td>
-                <td>11:00</td>
-                <td >
-                    <button class="bouton" type="button"> Annuler</button>
-                </td>
-            </tr>
+
+            <%
+                String id=(String)session.getAttribute("id");
+                List<Map<String,Object>> list=new Utilisateur().reserEtu(id);
+                for (Map<String,Object> une:list
+                     ) {
+                    out.print("<tr><td>"+une.get("numS")+"</td>");
+                    out.print("<td>"+une.get("numM")+"</td>");
+                    out.print("<td>"+une.get("date")+"</td>");
+                    out.print("<td>"+une.get("description")+"</td>");
+                    out.print(" <td><button class='bouton' type='button'> Annuler</button></td></tr>");
+
+                }
+            %>
+
         </table>
     </div>
 </div>
