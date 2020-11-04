@@ -90,7 +90,8 @@
                     out.print("<td>"+une.get("numM")+"</td>");
                     out.print("<td>"+une.get("date")+"</td>");
                     out.print("<td>"+une.get("description")+"</td>");
-                    out.print(" <td><a href=ServletAnnulerResM?> Annuler</a></td></tr>");
+                    out.print(" <td><a class='bouton' href=ServletAnnulerResM?date="+une.get("date") +
+                            "&periode="+une.get("periode")+"&idU="+id+"&idM="+une.get("codeM")+"> Annuler</a></td></tr>");
 
                 }
             %>
