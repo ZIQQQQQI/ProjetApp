@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="Model.Salle" %>
+<%@ page import="Model.Machine" %><%--
   Created by IntelliJ IDEA.
   User: woshi
   Date: 2020/11/3
@@ -31,18 +33,18 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <!--
+
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
            <ul class="navbar-nav mr-auto">
                <li class="nav-item">
-                   <a class="nav-link disabled" href="accueil.html" style="color:#FFFFFF;">Mes reservations</a>
-               </              <li class="nav-item">
-                 --  <a class="nav-link disabled" href="reclamation.html" style="color:#FFFFFF;">Réclamation</a>
-                 </li> -->
+                   <a class="nav-link disabled" href="/GestionMachine/accueil.jsp" style="color:#FFFFFF;">Mes reservations</a>
+                            <li class="nav-item">
+                  <a class="nav-link disabled" href="reclamation.html" style="color:#FFFFFF;">Réclamation</a>
+                 </li>
 
     </ul>
     <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
-    </div> -->
+    </div>
 </nav>
 
 <div id="global">
@@ -52,60 +54,71 @@
          -->
     </div>
     <br/>
+
     <div id="titrePage">
         <!-- Titre du tableau-->
         <h2>Liste des salles libre pour vous :</h2>
-    </div>
-    <h3>Date que vous avez choisi:2020-10-31 8:00-9:30</h3>
-    <select>
-        <option value ="Me401">ME401</option>
-        <option value ="Me402">ME402</option>
-        <option value="Me403">Me403</option>
-        <option value="Me301">Me301</option>
-    </select>
+        <FORM action="/GestionMachine/ServletChercheSalle" method="get">
+            <%
+                String date=request.getParameter("date");
+                String periode=request.getParameter("periode");
+                out.print("<input name=date type=hidden value="+date+"></input>");
+                out.print("<input name=periode type=hidden value="+periode+"></input>");
 
-    <h3>
-        Attention!Votre salle est : ME401  Etat:Pas complet
-    </h3>
+            %>
+            <select name="salle">
+                <%
+                    String id=(String)session.getAttribute("id");
+                    List<Salle> list = (List<Salle>) request.getAttribute("list");
+                    for (Salle salle : list) {
+                        out.print("<option value="+salle.getCodeS()+">"+salle.getNumS()+"</option>");
+                    }
+
+                %>
+            </select>
+            <INPUT TYPE="submit">Chercher les ordinateurs disponible</INPUT>
+        </FORM>
+    </div>
+
+
+
+
 
     <h2>Liste des ordinateurs de cette salle  :</h2>
+
+    <%
+        Salle salle = (Salle) request.getAttribute("salle");
+    %>
     <!-- Création du tableau-->
     <div id="conteneurTab">
         <table id="myTable">
             <tr class="header">
                 <th id="numM">Numéro machine</th>
-                <th id="numS">Numéro salle</th>
-                <th id="DateR">Nom_Etudiant </th>
-                <th id="HeureDebR">Promotion </th><!--On a pas besoin? -->
+
+
                 <th id="HeureFinR">Disponibilite </th><!--On a pas besoin? -->
-                <th id="">Heure limite </th>
+
                 <th class="annuler"></th>
-                <th class="annuler"></th>
-            </tr>
-            <!--Exemple de données. Il faut remplacer avec code java qui recupérer les vrais infos dans la bd-->
-            <tr>
-                <td>A16763</td>
-                <td>ME401</td>
-                <td>TANG</td>
-                <td>IPM-G1</td>
-                <td>Occupe</td>
-                <td>null</td>
-                <td>
-                    <button class="bouton" type="button"> Utiliser</button>
-                </td>
 
             </tr>
-            <tr>
-                <td>A17671</td>
-                <td>ME401</td>
-                <td>null</td>
-                <td>IPM-G2</td>
-                <td>Dispo</td>
-                <td>17:00</td>
-                <td >
-                    <button class="bouton" type="button"> Utiliser</button>
-                </td>
-            </tr>
+            <!--Exemple de données. Il faut remplacer avec code java qui recupérer les vrais infos dans la bd-->
+
+            <%
+                List<Machine> machine;
+
+
+                machine = (List<Machine>) request.getAttribute("machine");
+
+                for (Machine m:machine
+                     ) {
+                    out.print("<tr><td>"+m.getNumM()+"</td>");
+                    out.print("<td>Dispo</td>");
+                    out.print("<td><a class='bouton' href=ServletResMachine?idM="+m.getCodeM()
+                            +"&date="+date+"&periode="+periode+"&idU="+id+"> Utiliser</a></td></tr>");
+                }
+            %>
+
+
         </table>
     </div>
 

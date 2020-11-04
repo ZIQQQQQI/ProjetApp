@@ -42,7 +42,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link disabled" href="accueil.html" style="color:#FFFFFF;">Mes reservations</a>
+                <a class="nav-link disabled" href="/GestionMachine/accueil.jsp" style="color:#FFFFFF;">Mes reservations</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="reclamation.html" style="color:#FFFFFF;">Réclamation</a>
@@ -53,7 +53,7 @@
     </div>
 </nav>
 <div id="global">
-    <form method="get" action="/GestionMachine/chercheUnedate">
+    <form method="get" action="/GestionMachine/ServletChercheSalle">
 
         <h2>Veuillez choisir une periode: </h2>
         <!--Champ pour la date-->
@@ -61,7 +61,7 @@
         <input id="date" type="date" name="date" value="2020-10-20">
         <!--Champ pour le créneau horaire-->
         <label for="etat">Créneau horaire :</label>
-        <select>
+        <select name="periode">
             <option value ="1">8:00-9:30</option>
             <option value ="2">9:30-11:00</option>
             <option value="3">11:00-12:30</option>

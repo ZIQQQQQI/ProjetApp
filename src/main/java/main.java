@@ -27,7 +27,6 @@ public class main {
 
 
         // utilisateur
-        /*
         JdbcTemplate db=new JdbcTemplate(JDBCUtils.getDataSource());
         String sql="select* from utilisateur";
         List<Utilisateur> list=db.query(sql,new BeanPropertyRowMapper<>(Utilisateur.class));
@@ -56,7 +55,7 @@ public class main {
         //afficher resultat machine
         for (Machine machine : listMachine) {
             System.out.println(machine);
-        }*/
+        }
 
         Salle s=new Salle();
         String date="2020-11-02";
@@ -64,11 +63,11 @@ public class main {
         Date d=sdf.parse(date);
         String sss=sdf.format(d);
         System.out.println(sss);
-        List<Salle> list= s.trouveListeDeSalle(sss,5);
-        for (Salle sa:list
-             ) {
-            System.out.println(sa.getNumS());
-        }
+       // List<Salle> list= s.trouveListeDeSalle(sss,"5");
+       // for (Salle sa:list
+          //   ) {
+          //  System.out.println(sa.getNumS());
+       // }
 
 
     }
