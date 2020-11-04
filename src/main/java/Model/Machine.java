@@ -26,6 +26,7 @@ public class Machine {
     public Machine() {
         this.template=new JdbcTemplate(JDBCUtils.getDataSource());;
     }
+    //
 
 
     //trouver list des machine de une salle
