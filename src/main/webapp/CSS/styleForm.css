@@ -1,0 +1,117 @@
+body{
+		font-family: Arial,sans-serif ;
+		height: 100%;
+		margin-top: 0%;
+	}
+/*Definition des marges de la page*/
+#global{
+	margin-top: 1.5em;
+	margin-left: 10%;
+  	margin-right: 10%;
+}
+/*Style du titre*/ 
+.titreForm{
+	color:#333333;
+	font-size: 3em;
+	font-family: Arial,sans-serif ;
+
+}
+/*Style des entetes des fieldsets */
+.entete{
+	color: #B22222;
+	font-family: Arial,sans-serif ;
+    font-weight: bold;
+    font-size: 1.1em;
+    width: auto;
+    padding: 0;
+}
+/*Style des titres des champs*/
+label{
+	color: #B22222;
+	font-family: Arial,sans-serif ;
+    font-weight: bold;
+	display: inline-block;
+  	vertical-align: top;
+  	margin: 6px;
+}
+/*Style pour les messages NB*/
+p{
+	text-align: center;
+}
+
+/* Permet de centrer les boutons Enregistrer et vider*/
+#conteneurBouton{
+text-align: center;
+}
+/*Couleur de fond et couleur de l'écriture du bouton Ajouter PA*/
+/*Couleur de fond et couleur de l'écriture des bouton*/
+.bouton {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.bouton:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.bouton:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+input[type=submit]:hover,input[type=reset]:hover {
+	color:mediumvioletred;
+}
+/*couleur du contour des champs de type texte, date, select et number*/
+input[type=text],input[type=date],select,input[type=number]{
+	border: 0.5px solid #333333;
+	border-radius:5px;
+	display: block;
+	color: black;
+}
+/*Couleur des champs de type checkbox et textarea*/
+input[type=checkbox],textarea{
+	color: black;
+}
+/*Taille des champs select*/ 
+select{
+	width: 60%;
+}
+/*Taille des champs de type text et date*/
+input[type=text],input[type=date]{
+	    width: 60%;
+}
+
+/*Taille des champs de type textarea*/
+textarea{
+	border-radius:5px;
+    display: block;
+    width: 100%;
+}
+#heure,#identifiant,#messageTab,.enteteTabInd{
+		padding:2px; /* équivalent cellpadding */
+		overflow:auto; /* si ça dépasse on affiche la scrollbar */
+		text-align: center;
+}
+#heure{
+
+	width: 15%;
+}
+#identifiant{
+	width: 15%;
+}
+#messageTab{
+	width: 40%; 
+}
