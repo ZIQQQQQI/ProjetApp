@@ -1,4 +1,8 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="Model.Utilisateur" %>
+<%@ page import="org.springframework.jdbc.core.JdbcTemplate" %>
+<%@ page import="Outil.JDBCUtils" %>
+<%@ page import="org.springframework.jdbc.core.BeanPropertyRowMapper" %><%--
   Created by IntelliJ IDEA.
   User: 86130
   Date: 03/11/2020
@@ -40,26 +44,45 @@
 
 <!-- Création du tableau-->
 <div id="conteneurTab">
-    <form name="supprimerEtu" method="get" action="/GestionMachine/ServletSupprimerEtudiant">
+    <%--<form name="supprimerEtu" method="get" action="/GestionMachine/ServletSupprimerEtudiant">--%>
         <h3>Liste des etudiants: </h3>
+
         <table id="lstEtudiant">
             <tr class="header">
                 <th id="identifiantU">Numéro etudiant</th>
                 <th id="nomU">Nom </th>
                 <th id="prenomU">Prenom </th>
+                <th id="supprimer">Supprimer</th>
             </tr>
             <!--Exemple de données. Il faut remplacer avec code java qui recupérer les vrais infos dans la bd-->
-            <tr>
-                <td>20202020</td>
-                <td>CUSSAT-BLANC</td>
-                <td>SYLVAIN</td>
-                <td>
-                    <input type="submit" name="submit" value="Supprimer" class="bouton">
-<%--                    <button class="bouton" type="button" class="bouton">Supprimer</button>--%>
-                </td>
-            </tr>
+
+            <%
+                JdbcTemplate jdbcTem = new JdbcTemplate(JDBCUtils.getDataSource());
+                String codeG = (String)session.getAttribute("codeG"); //enregistrer un codeG dans session
+                String sql = "select identifiantU, nomU, prenomU from utilisateur where codeG =" + codeG + ";"; // trouver tous les étudiants d'un groupe
+
+                List<Utilisateur> lstU = jdbcTem.query(sql,new BeanPropertyRowMapper<>(Utilisateur.class));
+
+                for (Utilisateur utilisateur : lstU) {
+                    out.print("<tr><td>"+utilisateur.getIdentifiantU()+"</td>");
+                    out.print("<td>"+utilisateur.getNomU()+"</td>");
+                    out.print("<td>"+utilisateur.getPrenomU()+"</td>");
+                    out.print("<td><a class='bouton' href=ServletSupprimerEtudiant?idU="+utilisateur.getIdentifiantU()
+                            +"> Supprimer</a></td></tr>");
+                }
+            %>
+
+<%--            <tr>--%>
+<%--                <td>20202020</td>--%>
+<%--                <td>CUSSAT-BLANC</td>--%>
+<%--                <td>SYLVAIN</td>--%>
+<%--                <td>--%>
+<%--                    <input type="submit" name="submit" value="Supprimer" class="bouton">--%>
+<%--&lt;%&ndash;                    <button class="bouton" type="button" class="bouton">Supprimer</button>&ndash;%&gt;--%>
+<%--                </td>--%>
+<%--            </tr>--%>
         </table>
-    </form>
+<%--    </form>--%>
 
 
 </div>
@@ -83,12 +106,6 @@
 
         <label>Type utilisateur :</label>
         <input type="text" name="txtTypeU" value="etudiant" size="10" disabled>
-
-        <label>Groupe :</label>
-        <select name="groupeEtu"> <%--obtenir depuis BD--%>
-            <option value="g1">Groupe 1</option>
-            <option value="g2">Groupe 2</option>
-        </select>
 
         <input type="submit" name="submit" value="Ajouter" class="bouton">
     </form>

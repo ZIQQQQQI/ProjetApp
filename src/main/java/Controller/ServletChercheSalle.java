@@ -30,8 +30,10 @@ public class ServletChercheSalle extends HttpServlet {
             }
 
 
-             machine=new Machine().trouerMachineLibre(idS,periode,date);
-            request.setAttribute("machine",machine);
+
+            machine=new Machine().trouerMachineLibre(idS,periode,date);
+ 
+         request.setAttribute("machine",machine);
             request.getRequestDispatcher("reserverEtu.jsp").forward(request, response);
         }
 

@@ -20,7 +20,6 @@ public class ServletAnnulerCours extends HttpServlet {
         String periodeCours = request.getParameter("periodeCours");
 
         String sql = "delete from allouer where codeTP = ? and date = ? and periode = ?;";
-        System.out.println(dateStr);
         JdbcTemplate jdbcTem = new JdbcTemplate(JDBCUtils.getDataSource());
 
         int nbLigne = jdbcTem.update(sql, coursStr, dateStr, periodeCours);

@@ -42,13 +42,14 @@ public class Utilisateur {
 //        return utilisateur;
     }
 
-    public  List<Map<String,Object>> reserEtu(String id){
+    public List<Map<String,Object>> reserEtu(String id){
         String sql="select m.numM, s.numS, r.date, r.periode, cp.description from reserver as r, machine as m, salle as s, " +
                 "calenperiode as cp where r.identifiantU =? " +
                 "and r.codeM = m.codeM and s.codeS = m.codeS and cp.periode = r.periode";
         return  this.jdbcTem.queryForList(sql,id);
 
     }
+
 
     //set et get
 
