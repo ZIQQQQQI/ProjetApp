@@ -26,7 +26,7 @@
 <!-- Création de la barre de navigation -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #B22222;">
 
-    <a class="navbar-brand" href="accueil.html"><img src="Images/logo_grid.gif" alt="Logo ut1"></a>
+    <a class="navbar-brand" href="accueilResp.jsp"><img src="Images/logo_grid.gif" alt="Logo ut1"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -41,17 +41,115 @@
     <button class="bouton" type="button" onclick="window.location.href = 'formAjoutEtu.html';"> Ajouter un étudiant </button>
     -->
 
-    <form name="consult" method="get" action="detailFormation.jsp"> // survelet
-        <select>
+    <form name="consult" method="get" action="detailFormation.jsp">
+        <h3>Consulter une formation:</h3>
+        <label>Groupe: </label>
+        <select name="selectFormation"> <%--utiliser rqt--%>
             <option value="g1">Groupe 1</option>
             <option value="g2">Groupe 2</option>
         </select>
-        <input type="submit" name="submit" value="Consulter" class="collection" />
+        <input type="submit" name="submit" value="Consulter" class="bouton" />
+    </form>
+    <HR size="10">
+
+    <form name="annulerCours" method="get" action="/GestionMachine/ServletAnnulerCours">
+        <h3>Annuler un cours:</h3>
+        <label>TP: </label>
+        <select name="selectCours" id="selectCours"> <%--utiliser rqt--%>
+            <option value="1">TP groupe 1</option>
+            <option value="2">TP groupe 2</option>
+        </select>
+
+        <label>Date: </label>
+        <input type="date" id="dateCours" name="dateCours">
+
+        <label>Heure de debut et heure de fin: </label>
+        <select name="periodeCours" id="periodeCours">
+            <option value="1">8:00 - 9:30</option>
+            <option value="2">9:30 - 11:00</option>
+            <option value="3">11:00 - 12:30</option>
+            <option value="4">12:30 - 14:00</option>
+            <option value="5">14:00 - 15:30</option>
+            <option value="6">15:30 - 17:00</option>
+            <option value="7">17:00 - 18:30</option>
+            <option value="8">18:30 - 20:00</option>
+        </select>
+
+        <input type="submit" name="submit" value="Annuler" class="bouton" />
+<%--        <button class="bouton" type="button" onclick="window.location.href = 'formAnnulerCours.jsp';"> Annuler un cours </button>--%>
+    </form>
+    <HR size="10">
+
+
+
+
+    <form name="reserverSalle" method="get" action="/GestionMachine/ServletReserverSalle">
+        <h3>Reserver une salle pour un TP:</h3>
+
+        <label for="selectFormation">Groupe :</label>
+        <select name="selectFormation" id="selectFormation"> <%--utiliser rqt--%>
+            <option value="1">Groupe 1</option>
+            <option value="2">Groupe 2</option>
+        </select>
+<%--        <input type="text" name="nomG" id="nomG" value="" readonly="readonly"/><!--Le nom du groupe doit être rempli automatiquement-->--%>
+
+        <!--Champ qui contient la liste des TP du groupe du responsable
+				Récuperer les vrais valeurs dans la BD-->
+        <label <%--for="etat"--%>>TP :</label>
+        <select name="codeTP" id="codeTP">
+            <!--Value=codeTP-->
+            <option value="1"> Programmation M2 Miage IPM Grp1<!--On affiche ici nomTP--></option>
+        </select>
+
+        <!--Champ qui contient la liste des salles libres
+            Récuperer les vrais valeurs dans la BD-->
+        <label <%--for="etat"--%>>Salles:</label>
+        <select name="numS" id="numS">
+            <!--Value=codeS-->
+            <option value="1"> ME401<!--On affiche ici numS--></option>
+        </select>
+
+        <!--Champ de la date de la réservation-->
+        <label <%--for="etat"--%>>Date de la réservation :</label>
+        <input type="date" id="dateR" name="dateR">
+
+        <!--Champ qui contient l'heure-->
+        <label <%--for="etat"--%>>Heure de début :</label>
+        <select name="heureDebR" id="heureDebR">
+            <!--Value=codeM-->
+            <option value="8:00">8:00</option>
+            <option value="9:30">9:30</option>
+            <option value="11:00">11:00</option>
+            <option value="12:30">12:30</option>
+            <option value="14:00">14:00</option>
+            <option value="15:30">15:30</option>
+            <option value="17:00">17:00</option>
+            <option value="18:30">18:30</option>
+        </select>
+        <!--Champ qui contient l'heure-->
+        <label <%--for="etat"--%>>Heure de fin :</label>
+        <select name="heureDebR" id="heureFinR">
+            <!--Value=codeM-->
+            <option value="9:30">9:30</option>
+            <option value="11:00">11:00</option>
+            <option value="12:30">12:30</option>
+            <option value="14:00">14:00</option>
+            <option value="15:30">15:30</option>
+            <option value="17:00">17:00</option>
+            <option value="18:30">18:30</option>
+            <option value="20:00">20:00</option>
+        </select>
+
+        <input type="submit" name="submit" value="Reserver" class="bouton" />
+    </form>
+    <HR size="10">
+
+
+    <form name="consultTauxOcc" method="get" action="">
+        <h3>Consulter le taux d'occupation d'une salle: </h3>
+
     </form>
 
-    <form name="annulCours" method="get" action="">
-        <button class="bouton" type="button" onclick="window.location.href = 'formAnnulerCours.jsp';"> Annuler un cours </button>
-    </form>
 
 
 

@@ -10,11 +10,13 @@ import java.util.Date;
 import java.util.List;
 
 public class Machine {
+
     public Integer codeM;
     public String numM;
 
     public JdbcTemplate template;
     public Integer codeS;
+
 
     public Machine(Integer codeM, String numM,Integer codeS) {
         this.codeM = codeM;
