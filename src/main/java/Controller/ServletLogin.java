@@ -14,6 +14,7 @@ import java.io.IOException;
 @WebServlet("/ServletLogin")
 public class ServletLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setHeader("content-type", "text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         String login = request.getParameter("login");
         String mdp = request.getParameter("motdepasse");
@@ -31,7 +32,7 @@ public class ServletLogin extends HttpServlet {
             if(user.getTypeU().equals("etudiant")){
                 response.addHeader("refresh", "0,URL = /GestionMachine/accueil.jsp");
             }else if(user.getTypeU().equals("responsable")){
-                response.addHeader("refresh", "0,URL = /GestionMachine/accueilResp.jsp");
+                response.addHeader("refresh", "0,URL = /GestionMachine/accueil_responsable.jsp");
             }
         }else {
             response.getWriter().write("<h3 align=\"center\">Connexion échec!</h3>");

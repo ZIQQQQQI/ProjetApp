@@ -13,6 +13,7 @@ import java.io.IOException;
 @WebServlet("/ServletSupprimerEtudiant")
 public class ServletSupprimerEtudiant extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setHeader("content-type", "text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         String idU=request.getParameter("idU");
 

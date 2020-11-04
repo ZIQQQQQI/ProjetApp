@@ -83,7 +83,7 @@ input[type=text],input[type=date],select,input[type=number]{
 }
 /*Couleur des champs de type checkbox et textarea*/
 input[type=checkbox],textarea{
-	color: blacks;
+	color: black;
 }
 /*Taille des champs select*/ 
 select{

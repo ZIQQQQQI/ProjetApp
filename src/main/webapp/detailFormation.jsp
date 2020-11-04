@@ -57,11 +57,13 @@
             <!--Exemple de données. Il faut remplacer avec code java qui recupérer les vrais infos dans la bd-->
 
             <%
-                JdbcTemplate jdbcTem = new JdbcTemplate(JDBCUtils.getDataSource());
-                String codeG = (String)session.getAttribute("codeG"); //enregistrer un codeG dans session
-                String sql = "select identifiantU, nomU, prenomU from utilisateur where codeG =" + codeG + ";"; // trouver tous les étudiants d'un groupe
+//                JdbcTemplate jdbcTem = new JdbcTemplate(JDBCUtils.getDataSource());
+//                String codeG = (String)session.getAttribute("codeG"); //enregistrer un codeG dans session
+//                String sql = "select identifiantU, nomU, prenomU from utilisateur where codeG =" + codeG + ";"; // trouver tous les étudiants d'un groupe
+//
+//                List<Utilisateur> lstU = jdbcTem.query(sql,new BeanPropertyRowMapper<>(Utilisateur.class));
 
-                List<Utilisateur> lstU = jdbcTem.query(sql,new BeanPropertyRowMapper<>(Utilisateur.class));
+                List<Utilisateur> lstU = (List<Utilisateur>) request.getAttribute("lstU");
 
                 for (Utilisateur utilisateur : lstU) {
                     out.print("<tr><td>"+utilisateur.getIdentifiantU()+"</td>");
