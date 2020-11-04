@@ -6,7 +6,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Salle {
@@ -28,14 +27,22 @@ public class Salle {
 
 
     //pas fini
-    public List<Salle> trouveListeDeSalle(String date,Integer periode){
-        List<Salle> list=new ArrayList<>();
-        String sql="select distinct s.numS " +
-                "from salle as s " +
+    public List<Salle> trouveListeDeSalle(String date, String periode,Integer idEtu){
+
+
+
+        List<Salle> list;
+        String sql=" select s.CodeS,S.NumS from allouer as a, utilisateur as u, salle as s " +
+                "where a.codeG = u.codeG and s.codeS = a.codeS and u.identifiantU ="+idEtu +
+                " and a.date = '"+date+"' and a.periode = "+periode +
+                " union " +
+                " select distinct s.CodeS,S.NumS " +
+                " from salle as s " +
                 "where s.codeS not in(select a.codeS " +
                 "     from allouer as a " +
-                "                    where a.dateallouer = "+date +
-                "                    and a.periodeallouer = "+periode+")";
+                "                    where a.date ='"+date +
+                "' and a.periode= "+periode+")";
+
         list=this.template.query(sql,new BeanPropertyRowMapper<Salle>(Salle.class));
         return  list;
     }
