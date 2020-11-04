@@ -72,7 +72,6 @@
             <option value="5">14:00 - 15:30</option>
             <option value="6">15:30 - 17:00</option>
             <option value="7">17:00 - 18:30</option>
-            <option value="8">18:30 - 20:00</option>
         </select>
 
         <input type="submit" name="submit" value="Annuler" class="bouton" />
@@ -114,32 +113,17 @@
         <input type="date" id="dateR" name="dateR">
 
         <!--Champ qui contient l'heure-->
-        <label <%--for="etat"--%>>Heure de début :</label>
+        <label>Heure de debut et heure de fin: </label>
         <select name="heureDebR" id="heureDebR">
             <!--Value=codeM-->
-            <option value="8:00">8:00</option>
-            <option value="9:30">9:30</option>
-            <option value="11:00">11:00</option>
-            <option value="12:30">12:30</option>
-            <option value="14:00">14:00</option>
-            <option value="15:30">15:30</option>
-            <option value="17:00">17:00</option>
-            <option value="18:30">18:30</option>
+            <option value="1">8:00 - 9:30</option>
+            <option value="2">9:30 - 11:00</option>
+            <option value="3">11:00 - 12:30</option>
+            <option value="4">12:30 - 14:00</option>
+            <option value="5">14:00 - 15:30</option>
+            <option value="6">15:30 - 17:00</option>
+            <option value="7">17:00 - 18:30</option>
         </select>
-        <!--Champ qui contient l'heure-->
-        <label <%--for="etat"--%>>Heure de fin :</label>
-        <select name="heureDebR" id="heureFinR">
-            <!--Value=codeM-->
-            <option value="9:30">9:30</option>
-            <option value="11:00">11:00</option>
-            <option value="12:30">12:30</option>
-            <option value="14:00">14:00</option>
-            <option value="15:30">15:30</option>
-            <option value="17:00">17:00</option>
-            <option value="18:30">18:30</option>
-            <option value="20:00">20:00</option>
-        </select>
-
         <input type="submit" name="submit" value="Reserver" class="bouton" />
     </form>
     <HR size="10">
