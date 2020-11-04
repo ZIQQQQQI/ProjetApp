@@ -47,6 +47,12 @@ public class Utilisateur {
 
     }
 
+    public List<Utilisateur> lstEtu(String id){
+        String sql = "select identifiantU, nomU, prenomU from utilisateur where codeG =" + codeG + ";";
+        return jdbcTem.query(sql,new BeanPropertyRowMapper<>(Utilisateur.class));
+    }
+
+
     //set et get
 
     public String getIdentifiantU() {

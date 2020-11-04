@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Utilisateur;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/ServletConsulterFor")
 public class ServletConsulterFor extends HttpServlet {
@@ -15,8 +17,12 @@ public class ServletConsulterFor extends HttpServlet {
         String codeG = request.getParameter("selectFormation");
         HttpSession session = request.getSession(true);
         session.setAttribute("codeG", codeG);
+        Utilisateur utilisateur = new Utilisateur();
 
-        request.getRequestDispatcher("detailFormation.jsp").forward(request, response);
+        List<Utilisateur> lstU = utilisateur.lstEtu(codeG);
+        request.setAttribute("lstU", lstU);
+
+        request.getRequestDispatcher("listeEtudiants.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
