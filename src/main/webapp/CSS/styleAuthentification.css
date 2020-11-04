@@ -1,0 +1,73 @@
+body {
+	font-family: Arial,sans-serif ;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 35%; /* largeur obligatoire pour être centré */
+}
+/*Effet ombragé du formulaire*/
+#ombre {
+	margin-top: 10%;
+	background-color:#FFFFFF;
+	border:0.5px solid gainsboro;
+	border-radius: 3px;
+	padding:5px;
+	box-shadow:2px 2px 8px gray; 
+	-moz-box-shadow:5px 5px 8px gray;
+	-webkit-box-shadow:5px 5px 8px gray;
+}
+/*Titre*/
+h2{
+	color:#FFFFFF;
+	background-color:#B22222;
+	font-size: 2em;
+	font-style: italic;
+	text-align: center;
+	margin-bottom: 1.5em;
+	margin-top: 0;
+}
+/*Couleur des entetes des champs*/
+.entete,input{
+	color: #333333;
+    font-weight: bold;
+
+}
+/*Bouton Se Connecter*/
+.connection{
+	background-color:#FFFFFF;
+	color:#B22222;
+	font-weight: bold;
+	display: block;
+   	margin : auto;
+   	height: 3em;
+   	width: auto;
+}
+fieldset{
+	border: 2px solid #333333;
+}
+/*Mise en place des icones dans les champs*/
+.input_container{
+	position: relative; 
+}
+
+.input_icon{
+	position: absolute; 
+	top: 2px;
+	color: #B22222; 
+	left: 2px;
+	font-size: 21px; /*Tu peux changer ici*/
+	width: 50px;
+}
+input[type=text],input[type=password]{
+	color: black;
+	font-weight: normal;
+	border-radius:3px;
+	width: 95%;
+	height: 1.8em;
+	padding-left:5%;
+}
+#logo{
+    display: block;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto 
+}

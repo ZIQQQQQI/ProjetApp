@@ -1,0 +1,77 @@
+html,body{
+		font-family: Arial,sans-serif ;
+		height: 100%;
+		margin-top: 0%;
+}
+/*Couleur de fond et couleur de l'écriture des bouton*/
+.bouton {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.bouton:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.bouton:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+/*Definition des marges de la page*/
+#global{
+	margin-top: 1.5em;
+	margin-left: 10%;
+  	margin-right: 10%;
+}
+/*Mettre le bouton Créer à gauche*/
+#global #creer {
+    float:left;
+}
+#global #creerInd {
+    float:right;  
+}
+/*Titre*/
+#titrePage{
+	margin-top: 1.5em ;
+	color: #333333;
+}
+
+/*Mise en forme du tableau*/
+#conteneurTab{
+	overflow:auto;/*pour activer les scrollbarres*/
+	min-height: 10%;
+
+}
+
+table {
+overflow-x:fixed;
+margin-top: 1em ;
+border: medium solid #333333;
+border-collapse: collapse;
+table-layout: fixed;
+width: 100%;
+}
+th{
+	color:#B22222;
+	background-color:rgb(178,34,34,0.1);
+	font-weight: bold;
+	border: 2px solid #333333;
+}
+td{
+	border: 2px solid #082D61;
+	color: #333333;
+	text-align: center;
+}
