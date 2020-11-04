@@ -18,12 +18,19 @@ public class ServletChercheSalle extends HttpServlet {
         String periode=request.getParameter("periode");
         String date=request.getParameter("date");
         Salle s=new Salle();
+        List<Machine> machine;
 
 
         List<Salle> list= s.trouveListeDeSalle(date,periode,id);
         if(!list.isEmpty()){
             request.setAttribute("list", list);
-            List<Machine> machine=new Machine().trouerMachineLibre(list.get(0).getCodeS(),periode,date);
+            Integer idS=list.get(0).getCodeS();
+            if(request.getParameter("salle")!=null){
+                idS=Integer.parseInt(request.getParameter("salle"))  ;
+            }
+
+
+             machine=new Machine().trouerMachineLibre(idS,periode,date);
             request.setAttribute("machine",machine);
             request.getRequestDispatcher("reserverEtu.jsp").forward(request, response);
         }

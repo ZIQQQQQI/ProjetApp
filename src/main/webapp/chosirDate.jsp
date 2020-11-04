@@ -42,7 +42,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link disabled" href="accueil.html" style="color:#FFFFFF;">Mes reservations</a>
+                <a class="nav-link disabled" href="/GestionMachine/accueil.jsp" style="color:#FFFFFF;">Mes reservations</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="reclamation.html" style="color:#FFFFFF;">Réclamation</a>
