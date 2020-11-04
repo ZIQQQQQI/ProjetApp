@@ -44,17 +44,15 @@ public class Machine {
                 "where r.date = '"+date+"' and r.periode = "+periode+")";
         return this.template.query(sql,new BeanPropertyRowMapper<Machine>(Machine.class));
     }
-
+    //annuler une reserver de machine
     public  void supprimerResM(String periode,String date,String idu,String idM){
         String sql="delete from reserver  where identifiantU =? and codeM =? and date =? and periode = ?";
         this.template.update(sql,idu,idM,date,periode);
     }
 
 
-    //annuler une reserver de machine
-    public void annulerUneMachine(Integer perriode, Date date, Integer idU,Integer codeM){
 
-    }
+
 
     public Integer getCodeM() {
         return codeM;

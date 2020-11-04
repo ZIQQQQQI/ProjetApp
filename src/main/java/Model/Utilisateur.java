@@ -29,27 +29,23 @@ public class Utilisateur {
         }
         return user;
 
-//        if (!lstU.isEmpty()){
-//            utilisateur = this.jdbcTem.query(sql,new BeanPropertyRowMapper<Utilisateur>(Utilisateur.class)).get(0);
-//        }
-//        return utilisateur;
-//        String sql = "select * from utilisateur where identifiantU = "+id+" and motdepasseU ="+mdp;
-//        List<Utilisateur> lstU = this.jdbcTem.query(sql,new BeanPropertyRowMapper<Utilisateur>(Utilisateur.class));
-//        Utilisateur utilisateur = null;
-//        if(!lstU.isEmpty()){
-//            utilisateur = lstU.get(0);
-//        }
-//        return utilisateur;
+
     }
 
     public List<Map<String,Object>> reserEtu(String id){
-        String sql="select m.numM, s.numS, r.date, r.periode, cp.description from reserver as r, machine as m, salle as s, " +
+        String sql="select m.numM, m.codeM,s.numS, r.date, r.periode, cp.description from reserver as r, machine as m, salle as s, " +
                 "calenperiode as cp where r.identifiantU =? " +
                 "and r.codeM = m.codeM and s.codeS = m.codeS and cp.periode = r.periode";
         return  this.jdbcTem.queryForList(sql,id);
 
     }
 
+    public boolean siRer(String idU,String date,String periode){
+        String sql="select count(*) as res from reserver  where identifiantU = ?  and date =? and periode = ?";
+        Long res=(Long) this.jdbcTem.queryForList(sql,idU,date,periode).get(0).get("res");
+        return res == 1;
+
+    }
 
     public List<Utilisateur> lstEtu(String id){
         String sql = "select identifiantU, nomU, prenomU from utilisateur where codeG =" + codeG + ";";
