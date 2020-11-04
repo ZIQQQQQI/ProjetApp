@@ -1,6 +1,8 @@
 package Controller;
 
 import Model.Utilisateur;
+
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,14 +22,22 @@ public class ServletLogin extends HttpServlet {
         utilisateur.setIdentifiantU(login);
         utilisateur.setMotdepasseU(mdp);
 
-        if(utilisateur.login()){
+        Utilisateur user= utilisateur.login(login, mdp);
+
+        if(user != null){
             HttpSession session = request.getSession(true);
-            session.setAttribute("id", login);
-            // String id = (String)session.getAttribut("id");
-            response.addHeader("refresh", "0,URL = /GestionMachine/accueil.jsp");
+            // String id = (String)session.getAttribute("id");
+
+            if(user.getTypeU().equals("etudiant")){
+                session.setAttribute("idEtu", login);
+                response.addHeader("refresh", "0,URL = /GestionMachine/accueil.jsp");
+            }else if(user.getTypeU().equals("responsable")){
+                session.setAttribute("idResp", login);
+                response.addHeader("refresh", "0,URL = /GestionMachine/accueilResp.jsp");
+            }
         }else {
             response.getWriter().write("<h3 align=\"center\">Connexion échec!</h3>");
-            response.addHeader("refresh", "2,URL = /GestionMachine/authentification.jsp");
+            response.addHeader("refresh", "2,URL = /GestionMachine");
         }
     }
 

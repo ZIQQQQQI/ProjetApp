@@ -1,10 +1,9 @@
 package Model;
 
 import Outil.JDBCUtils;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import javax.print.DocFlavor;
-import javax.swing.event.ListDataListener;
 import java.util.List;
 import java.util.Map;
 
@@ -19,13 +18,28 @@ public class Utilisateur {
 
     public Utilisateur() {
         this.jdbcTem = new JdbcTemplate(JDBCUtils.getDataSource());
-
     }
 
-    public boolean login(){
-        String sql = "select * from utilisateur where identifiantU =? and motdepasseU = ?";
-        List<Map<String,Object>> LIST= this.jdbcTem.queryForList(sql, this.identifiantU, this.motdepasseU);
-        return !LIST.isEmpty();
+    public Utilisateur login(String id,String mdp){
+        Utilisateur user = null;
+        String sql = "select * from utilisateur where identifiantU = "+id/*+" and motdepasseU ="+mdp*/;
+        Utilisateur utilisateur = this.jdbcTem.query(sql,new BeanPropertyRowMapper<Utilisateur>(Utilisateur.class)).get(0);
+        if (utilisateur.getModepasseU().equals(mdp)){
+            user = utilisateur;
+        }
+        return user;
+
+//        if (!lstU.isEmpty()){
+//            utilisateur = this.jdbcTem.query(sql,new BeanPropertyRowMapper<Utilisateur>(Utilisateur.class)).get(0);
+//        }
+//        return utilisateur;
+//        String sql = "select * from utilisateur where identifiantU = "+id+" and motdepasseU ="+mdp;
+//        List<Utilisateur> lstU = this.jdbcTem.query(sql,new BeanPropertyRowMapper<Utilisateur>(Utilisateur.class));
+//        Utilisateur utilisateur = null;
+//        if(!lstU.isEmpty()){
+//            utilisateur = lstU.get(0);
+//        }
+//        return utilisateur;
     }
 
     public  List<Map<String,Object>> reserEtu(String id){

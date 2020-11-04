@@ -27,7 +27,6 @@ public class main {
 
 
         // utilisateur
-        /*
         JdbcTemplate db=new JdbcTemplate(JDBCUtils.getDataSource());
         String sql="select* from utilisateur";
         List<Utilisateur> list=db.query(sql,new BeanPropertyRowMapper<>(Utilisateur.class));
@@ -56,7 +55,7 @@ public class main {
         //afficher resultat machine
         for (Machine machine : listMachine) {
             System.out.println(machine);
-        }*/
+        }
 
         Salle s=new Salle();
         String date="2020-11-02";
