@@ -18,10 +18,9 @@ public class ServletAnnulerCours extends HttpServlet {
         request.setCharacterEncoding("utf-8");
 
         String codeTP = request.getParameter("codeTP");
-        Map<String, Object> seance = (Map<String, Object>) request.getAttribute("seance");
-        String numS = (String) seance.get("numS");
-        String date = (String) seance.get("date");
-        String description = (String) seance.get("description");
+        String numS = request.getParameter("numS");
+        String date = request.getParameter("date");
+        String description = request.getParameter("description");
 
         HttpSession session = request.getSession(true);
         String codeG = (String) session.getAttribute("codeG");
