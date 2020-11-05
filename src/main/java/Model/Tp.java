@@ -19,22 +19,21 @@ public class Tp {
     }
 
 
+    public Map<String, Object> getNbEtuTotal(String codeTP){
+        String sql = "select tp.nomTP, count(u.identifiantU) as nb_total from tp, utilisateur as u " +
+                "where tp.codeG = u.codeG and tp.codetp = ? group by u.codeG";
+        return this.jdbcTem.queryForList(sql, codeTP).get(0);
+    }
 
     public List<Tp> listTP(String codeG){
         String sql="select distinct * from tp where codeG="+codeG;
         return this.jdbcTem.query(sql,new BeanPropertyRowMapper<>(Tp.class));
-
-
     }
 
 
     public Tp getTP(String codeTP){
         String sql = "select * from tp where codeTP=" + codeTP;
         return this.jdbcTem.query(sql, new BeanPropertyRowMapper<Tp>(Tp.class)).get(0);
-    }
-
-    public int getNbEtuTotal(String codeTP){
-        return 0;
     }
 
 
@@ -49,6 +48,14 @@ public class Tp {
         return  this.jdbcTem.queryForList(sql, codeTP, codeTP);
     }
 
+
+
+    public int annulerCours (String codeTP, String numS, String date, String description, String codeG){
+        String sql = "delete from allouer where codeTP = ? and codeS = (select codeS from salle where numS = ?) " +
+                "and codeG = ? and date = ? and periode = (select periode from calenperiode " +
+                "where description=?)";
+        return this.jdbcTem.update(sql, codeTP, numS, codeG, date, description);
+    }
 
 
 

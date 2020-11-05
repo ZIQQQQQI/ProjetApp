@@ -1,33 +1,39 @@
 package Controller;
 
-import Outil.JDBCUtils;
-import org.springframework.jdbc.core.JdbcTemplate;
+import Model.Tp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Map;
 
 @WebServlet("/ServletAnnulerCours")
 public class ServletAnnulerCours extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setHeader("content-type", "text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
 
-        String coursStr = request.getParameter("selectCours");
-        String dateStr = request.getParameter("dateCours");
-        String periodeCours = request.getParameter("periodeCours");
+        String codeTP = request.getParameter("codeTP");
+        Map<String, Object> seance = (Map<String, Object>) request.getAttribute("seance");
+        String numS = (String) seance.get("numS");
+        String date = (String) seance.get("date");
+        String description = (String) seance.get("description");
 
-        String sql = "delete from allouer where codeTP = ? and date = ? and periode = ?;";
-        JdbcTemplate jdbcTem = new JdbcTemplate(JDBCUtils.getDataSource());
+        HttpSession session = request.getSession(true);
+        String codeG = (String) session.getAttribute("codeG");
 
-        int nbLigne = jdbcTem.update(sql, coursStr, dateStr, periodeCours);
+        Tp tp = new Tp();
+        int nbLigne = tp.annulerCours(codeTP, numS, date, description, codeG);
 
         if (nbLigne == 0){
             response.getWriter().write("<h3 align='center'>Echec!</h3>");
+            response.addHeader("refresh", "2, URL = /listeSeances.jsp");
         }else {
-            response.getWriter().write("<h3 align='center'>Reussie!</h3>");
+            request.getRequestDispatcher("/listeSeances.jsp").forward(request, response);
         }
     }
 
