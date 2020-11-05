@@ -52,13 +52,6 @@ public class Tp {
 
 
 
-
-
-
-
-
-
-
     //get et set
     public Integer getCodeTp() {
         return codeTp;

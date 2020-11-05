@@ -33,7 +33,7 @@
 
             out.print("<p>Nom de TP: " + tp.getNomTP() + "</p>");
             out.print("<p>Nombre d'etudiant total: " + tp.getNbEtuTotal(codeTP) + "</p>");
-            out.print("<a class='bouton' href=choisirDateTp?codeTP="+ tp.getCodeTp()
+            out.print("<a class='bouton' href=choisirDateTp.jsp?codeTP="+ tp.getCodeTp()
                     + "&codeG=" + session.getAttribute("codeG") + "> Reserver</a>");
         %>
     </div>
