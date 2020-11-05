@@ -14,8 +14,9 @@
 <body>
 <%
     String codeG=(String) session.getAttribute("codeG");
+
     Tp tp=new Tp();
-    List<Tp> list=tp.listTP("codeG");
+    List<Tp> list=tp.listTP(codeG);
 
 %>
 <table>
