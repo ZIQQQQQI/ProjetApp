@@ -54,8 +54,28 @@ public class Utilisateur {
 
     }
 
+    public boolean addEtu(String idu,String nom,String prenom,String codeG){
+        String sql=" select count(*) from utilisateur where identifiantU = ?";
+        Long res=(Long) this.jdbcTem.queryForList(sql,idu).get(0).get("res");
+        if(res!=0){
+            return  false;
+        }else{
+            String sql1="insert into utilisateur(identifiantU, motdepasseU, nomU, prenomU,typeU,codeG) " +
+                    "values(?,123,?,?,'etudiant',?)";
+            System.out.println(sql+codeG);
+            this.jdbcTem.update(sql1,idu,nom,prenom,codeG);
+            return  true;
+        }
+
+    }
+
+    //
     public List<Utilisateur> lstEtu(String id){
-        String sql = "select identifiantU, nomU, prenomU from utilisateur where codeG =" + id + ";";
+
+     
+
+        String sql = "select identifiantU, nomU, prenomU from utilisateur where codeG =" + id ;
+
         return jdbcTem.query(sql,new BeanPropertyRowMapper<>(Utilisateur.class));
     }
 

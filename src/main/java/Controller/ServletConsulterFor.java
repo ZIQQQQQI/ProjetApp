@@ -16,7 +16,9 @@ public class ServletConsulterFor extends HttpServlet {
         request.setCharacterEncoding("utf-8");
 
         String codeG = request.getParameter("nomTP");
-        request.setAttribute("codeG", codeG);
+        HttpSession session = request.getSession(true);
+        session.setAttribute("codeG", codeG);
+
         Utilisateur utilisateur = new Utilisateur();
 
         List<Utilisateur> lstU = utilisateur.lstEtu(codeG);
