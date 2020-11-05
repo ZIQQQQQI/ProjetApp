@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Reservation Machine TP</title>
+	<title>Listes des etudiants</title>
 	<!-- Accepter les caractères spécieaux -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!--Logo icon ut1 capitole-->
@@ -48,6 +48,13 @@
 
   <div id="global">
   <br/>
+	  <div id="titrePage">
+		  <%
+			  String codeG = (String) request.getAttribute("codeG");
+			  out.print("<h2>Groupe: " + codeG + "</h2>");
+		  %>
+	  </div>
+
 	<div id="titrePage">
 	  <!-- Titre du tableau-->
 	  <h2>Ajouter un nouvel étudiant dans le Groupe:</h2>
@@ -95,12 +102,12 @@
 					out.print("<tr><td>"+utilisateur.getIdentifiantU()+"</td>");
 					out.print("<td>"+utilisateur.getNomU()+"</td>");
 					out.print("<td>"+utilisateur.getPrenomU()+"</td>");
-					out.print("<td><a class='bouton' href=ServletSupprimerEtudiant?idU="+utilisateur.getIdentifiantU()
-							+"> Supprimer</a></td></tr>");
+					out.print("<td><a class='bouton' href=ServletSupprimerEtudiant?idU="+ utilisateur.getIdentifiantU()
+							+ "&codeG="+ codeG +"> Supprimer</a></td></tr>");
 				}
 			%>
 		</table>
-  	</br>
+
 	</div>  
 
 </body>
