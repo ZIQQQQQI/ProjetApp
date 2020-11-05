@@ -44,10 +44,10 @@
                 <a class="nav-link disabled" href="accueil.html" style="color:#FFFFFF;">Mes reservations</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="reclamation.html" style="color:#FFFFFF;">Réclamation</a>
+                <a class="nav-link disabled" href="reclamation.html" style="color:#FFFFFF;">R&eacute;clamation</a>
             </li>
         </ul>
-            <a class="nav-link disabled" href="" style="color:#ffffff;">Déconnexion</a>
+            <a class="nav-link disabled" href="" style="color:#ffffff;">D&eacute;connexion</a>
     </div>
 </nav>
 
