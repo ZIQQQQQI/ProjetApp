@@ -55,7 +55,7 @@ public class Utilisateur {
     }
 
     public boolean addEtu(String idu,String nom,String prenom,String codeG){
-        String sql=" select count(*) from utilisateur where identifiantU = ?";
+        String sql=" select count(*) as res from utilisateur where identifiantU = ?";
         Long res=(Long) this.jdbcTem.queryForList(sql,idu).get(0).get("res");
         if(res!=0){
             return  false;

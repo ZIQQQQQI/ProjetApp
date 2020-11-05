@@ -54,7 +54,7 @@
 <div id="global">
     <!-- Création du bouton Ajouter PA -->
     <div id="creer">
-        <button class="bouton" type="button" onclick="window.location.href = '/GestionMachine/chosirDate.jsp';"> Réserver une machine </button>
+        <button class="bouton" type="button" onclick="window.location.href = 'chosirDateEtu.jsp';"> Réserver une machine </button>
     </div>
     <br/>
     <div id="titrePage">

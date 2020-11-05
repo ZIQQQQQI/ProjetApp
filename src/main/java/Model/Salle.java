@@ -22,7 +22,7 @@ public class Salle {
     }
 
     public Salle() {
-        this.template=new JdbcTemplate(JDBCUtils.getDataSource());;
+        this.template=new JdbcTemplate(JDBCUtils.getDataSource());
     }
 
     public List<Map<String,Object>> trouveSalleLibre(String periode,String date){
@@ -36,6 +36,7 @@ public class Salle {
                 "where s.codeS = m.codeS " +
                 "and table2.codeS = s.codeS and s.codeS not in(select a.codeS from allouer as a where a.date = ? and a.periode = ?) " +
                 "group by s.numS, s.codeS;";
+        System.out.println(sql+" "+periode+"  "+date);
         return  this.template.queryForList(sql,date,periode,date,periode,date,periode);
     }
 

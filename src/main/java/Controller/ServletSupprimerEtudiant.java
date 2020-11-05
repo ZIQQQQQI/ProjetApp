@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -19,8 +20,11 @@ public class ServletSupprimerEtudiant extends HttpServlet {
 
         Utilisateur utilisateur = new Utilisateur();
         utilisateur.supprimerEtu(idU);
+        HttpSession session = request.getSession(true);
 
-        String codeG = request.getParameter("codeG");
+        request.setAttribute("add", "pasfait");
+
+        String codeG = (String) session.getAttribute("codeG");
         request.setAttribute("codeG", codeG);
 
         List<Utilisateur> lstU = utilisateur.lstEtu(codeG);

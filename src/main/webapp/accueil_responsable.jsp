@@ -13,7 +13,7 @@
 	<!-- Style de la barre de navigation de bootstrap-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <!-- Le fichier est associé à styleAccueil.css qui est chargé de la mise en forme-->
-    <link rel="stylesheet" href="../../../../../../../../../../Dcm/UT1C/2021_M2/S1/Java/SemBloquee2/Interfaces/CSS/styleForm.css">
+    <link rel="stylesheet" href="CSS/styleForm.css">
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -47,7 +47,7 @@
 		<!--Champ qui contient la liste des TP de l'enseignant
 			Récuperer les vrais valeurs dans la BD-->
 		<label for="nomTP">Liste de mes groupes:</label>
-
+		<input type="hidden" name="ajouter" value="0">
 		<select name="nomTP" id="nomTP">
 			<%
 				String id = (String) session.getAttribute("id");

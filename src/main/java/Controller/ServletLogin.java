@@ -16,6 +16,7 @@ public class ServletLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setHeader("content-type", "text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
+
         String login = request.getParameter("login");
         String mdp = request.getParameter("motdepasse");
 
