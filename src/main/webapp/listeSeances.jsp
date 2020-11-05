@@ -52,11 +52,11 @@
 
                 for (Map<String, Object> seance : lstSeances) {
                     for (int i = 0; i < 4; i++) {
-                        out.print("<tr><td>"+seance.get(0)+"</td>");
-                        out.print("<td>"+seance.get(1)+"</td>");
-                        out.print("<td>"+seance.get(2)+"</td>");
-                        out.print("<td>"+seance.get(3)+"</td>");
-                        out.print("<td>"+seance.get(4)+"</td>");
+                        out.print("<tr><td>"+seance.get("salle")+"</td>");
+                        out.print("<td>"+seance.get("date")+"</td>");
+                        out.print("<td>"+seance.get("periode")+"</td>");
+                        out.print("<td>"+seance.get("nbEtuRes")+"</td>");
+                        out.print("<td>"+seance.get("nbPasMachine")+"</td>");
                         out.print("<td><a class='bouton' href=ServletAnnulerCours?codeTP="+ tp.getCodeTp()
                                 +"> Annuler</a></td></tr>");
                     }
@@ -66,9 +66,6 @@
         </table>
         </br>
     </div>
-
-
-
 
 </body>
 </html>

@@ -59,7 +59,8 @@
 	  <!-- Titre du tableau-->
 	  <h2>Ajouter un nouvel étudiant dans le Groupe:</h2>
 	</div>
-	<form>
+
+
 	  <form method="get" action="/GestionMachine/ServletAddEtu">
   		<!--Champ identifiant-->
 		<label for="identifiantU">Identifiant:</label>
@@ -80,6 +81,7 @@
 		<!-- Création du bouton Ajouter de type Submit-->
 	    <input type="submit" id="ajouter" value="Ajouter" name="Ajouter" class="bouton"/>
 	</form>
+
 	<div id="titrePage">
 	  <!-- Titre du tableau-->
 	  <h2>Liste des etudiants du Groupe:</h2>
@@ -109,6 +111,6 @@
 		</table>
 
 	</div>  
-
+  </div>
 </body>
 </html>
