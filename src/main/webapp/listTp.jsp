@@ -27,7 +27,7 @@
     <%
         for (Tp t:list
         ) {
-            out.print("<tr><td><a href=a?idp="+t.getCodeTp()+" >"+t.getNomTP()+"</a></td></tr>");
+            out.print("<tr><td><a href=ServletConsulterTP?codeTP="+t.getCodeTp()+" >"+t.getNomTP()+"</a></td></tr>");
         }
     %>
 </table>

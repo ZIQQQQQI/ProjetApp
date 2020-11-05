@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.Utilisateur;
+import Model.Tp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,25 +10,26 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
-@WebServlet("/ServletConsulterFor")
-public class ServletConsulterFor extends HttpServlet {
+@WebServlet("/ServletConsulterTP")
+public class ServletConsulterTP extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
 
-        String codeG = request.getParameter("nomTP");
+        String codeTP = request.getParameter("codeTP");
         HttpSession session = request.getSession(true);
-        session.setAttribute("codeG", codeG);
+        session.setAttribute("codeTP", codeTP);
 
-        Utilisateur utilisateur = new Utilisateur();
+        Tp tp = new Tp();
+        List<Map<String, Object>> lstSeance = tp.lstSeances(codeTP);
+        request.setAttribute("lstSeance", lstSeance);
 
-        List<Utilisateur> lstU = utilisateur.lstEtu(codeG);
-        request.setAttribute("lstU", lstU);
+        request.getRequestDispatcher("listeSeances.jsp").forward(request, response);
 
-        request.getRequestDispatcher("listeEtudiants.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doPost(request, response);
+        this.doPost(request,response);
     }
 }
