@@ -21,7 +21,7 @@ public class ServletConsulterTP extends HttpServlet {
 
         HttpSession session = request.getSession(true);
 
-      String codeTP = request.getParameter("codeTP");
+        String codeTP = request.getParameter("codeTP");
         session.setAttribute("codeTP", codeTP);
         
 
