@@ -20,7 +20,7 @@
 </head>
 <body>
 <div id="ombre">
-    <h2>Plateforme de réservation d'une machine</h2>
+    <h2>Plateforme de r&eacute;servation d'une machine</h2>
     <!-- Défintion des champs pour l'identifiant et le mot de passe -->
     <form method="get" action="/GestionMachine/ServletLogin">
         <fieldset>

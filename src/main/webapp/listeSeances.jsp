@@ -4,7 +4,7 @@
 <%@ page import="Model.Groupe" %>
 <html>
 <head>
-    <title>Liste des Seances de TP</title>
+    <title>Liste des S&eacute;ances de TP</title>
     <!-- Accepter les caractères spécieaux -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!--Logo icon ut1 capitole-->
@@ -33,14 +33,14 @@
                 <a class="nav-link disabled" href="accueil_responsable.jsp" style="color:#FFFFFF;">Accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="ServletConsulterFor?ajouter=2" style="color:#FFFFFF;">Consulter liste des Etudiants</a>
+                <a class="nav-link disabled" href="ServletConsulterFor?ajouter=2" style="color:#FFFFFF;">Consulter liste des &eacute;tudiants</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="listTp.jsp" style="color:#FFFFFF;">Consulter les TPs</a>
             </li>
             </li>
         </ul>
-        <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
+        <a class="nav-link disabled" href="" style="color:#FFFFFF;">D&eacute;connexion</a>
     </div>
 </nav>
 
@@ -72,13 +72,13 @@
 
 
     <div id="conteneurTab">
-        <h2>Liste des seances: </h2>
+        <h2>Liste des s&eacute;ances: </h2>
         <table id="myTable">
             <tr class="header">
                 <th id="salleC">Salle</th>
                 <th id="dateC">Date</th>
                 <th id="periodeC">Cr&eacute;neau Horaire </th>
-                <th id="nbReser">Nombre etudiants deja reserves une machine</th>
+                <th id="nbReser">Nombre &eacute;tudiants d&eacute;j&agrave; r&eacute;serv&eacute;s une machine</th>
                 <%--                <th id="nbPasMachine">Nombre d'etudiants sans machine</th>--%>
                 <th id="annuler"></th>
             </tr>

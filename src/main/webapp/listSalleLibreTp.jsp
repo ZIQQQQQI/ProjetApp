@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Salles libre</title>
+    <title>Salle libre</title>
     <!-- Accepter les caractères spécieaux -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!--Logo icon ut1 capitole-->
@@ -46,7 +46,7 @@
             </li>
             </li>
         </ul>
-        <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
+        <a class="nav-link disabled" href="" style="color:#FFFFFF;">D&eacute;connexion</a>
     </div>
 </nav>
 
@@ -56,7 +56,7 @@
         <tr>
             <th>Nom</th>
             <th>Nombre total de machine</th>
-            <th>Nombre de machines utilisées</th>
+            <th>Nombre de machines libres</th>
             <th></th>
         </tr>
         <%

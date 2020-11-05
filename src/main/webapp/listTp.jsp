@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Reservation Machine TP</title>
+    <title>R&eacute;servation Machine TP</title>
     <!-- Accepter les caractères spécieaux -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!--Logo icon ut1 capitole-->
@@ -46,7 +46,7 @@
             </li>
             </li>
         </ul>
-        <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
+        <a class="nav-link disabled" href="" style="color:#FFFFFF;">D&eacute;connexion</a>
     </div>
 </nav>
 

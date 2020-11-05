@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Listes des etudiants</title>
+	<title>Listes des Etudiants</title>
 	<!-- Accepter les caractères spécieaux -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!--Logo icon ut1 capitole-->
@@ -42,7 +42,7 @@
         </li>
        </li>
         </ul>
-            <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
+            <a class="nav-link disabled" href="" style="color:#FFFFFF;">D&eacute;connexion</a>
         </div>
     </nav>
 
@@ -60,7 +60,7 @@
 
 	<div id="titrePage">
 	  <!-- Titre du tableau-->
-	  <h2>Ajouter un nouvel étudiant dans le Groupe:</h2>
+	  <h2>Ajouter un nouvel &eacute;tudiant dans le Groupe:</h2>
 	</div>
 
 	  <form method="get" action="/GestionMachine/ServletConsulterFor">
@@ -88,16 +88,16 @@
 	</form>
 	<div id="titrePage">
 	  <!-- Titre du tableau-->
-	  <h2>Liste des etudiants du Groupe:</h2>
+	  <h2>Liste des &eacute;tudiants du Groupe:</h2>
 	</div>
 
 	<!-- Création du tableau-->
 	<div id="conteneurTab">
 		<table id="myTable">
 			<tr class="header">
-				<th id="identifiantE">Numéro etudiant</th>
+				<th id="identifiantE">Num&eacute;ro &eacute;tudiant</th>
 				<th id="nomE">Nom </th>
-				<th id="prenomE">Prenom </th>
+				<th id="prenomE">Pr&eacute;nom </th>
 				<th id="supprimer">Supprimer</th>
 			</tr>
 

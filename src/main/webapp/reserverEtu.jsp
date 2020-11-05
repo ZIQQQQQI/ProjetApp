@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Reservation Machine TP</title>
+    <title>R&eacute;servation Machine</title>
     <!-- Accepter les caractères spécieaux -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!--Logo icon ut1 capitole-->
@@ -47,7 +47,7 @@
             </li>
             </li>
         </ul>
-        <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
+        <a class="nav-link disabled" href="" style="color:#FFFFFF;">D&eacute;connexion</a>
     </div>
 </nav>
 
@@ -62,7 +62,7 @@
 
     <div id="titrePage">
         <!-- Titre du tableau-->
-        <h2>Liste des salles libre pour vous :</h2>
+        <h2>Liste des salles libres pour vous :</h2>
         <FORM action="/GestionMachine/ServletChercheSalle" method="get">
             <%
                 String date=request.getParameter("date");
@@ -81,7 +81,7 @@
 
                 %>
             </select>
-            <INPUT TYPE="submit" class="bouton">Chercher les ordinateurs disponible</INPUT>
+            <INPUT TYPE="submit" class="bouton">Chercher les ordinateurs disponibles</INPUT>
         </FORM>
     </div>
 
@@ -98,10 +98,10 @@
     <div id="conteneurTab">
         <table id="myTable">
             <tr class="header">
-                <th id="numM">Numéro machine</th>
+                <th id="numM">Num&eacute;ro machine</th>
 
 
-                <th id="HeureFinR">Disponibilite </th><!--On a pas besoin? -->
+                <th id="HeureFinR">Disponibilit&eacute; </th><!--On a pas besoin? -->
 
                 <th class="annuler"></th>
 
