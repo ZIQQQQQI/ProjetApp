@@ -20,7 +20,6 @@ public class ServletAnnulerCours extends HttpServlet {
         HttpSession session = request.getSession(true);
 
         String codeTP = (String) session.getAttribute("codeTP");
-//        session.setAttribute("codeTP",codeTP);
 
         String numS = request.getParameter("numS");
         String date = request.getParameter("date");
@@ -31,7 +30,9 @@ public class ServletAnnulerCours extends HttpServlet {
         request.setAttribute("tp", tp);
 
         int nbLigne = tp.annulerCours(codeTP, numS, date, description, codeG);
-        List<Map<String, Object>> lstSeance = tp.lstSeances(codeTP);
+//        List<Map<String, Object>> lstSeance = tp.lstSeances(codeTP);
+//        request.setAttribute("lstSeance", lstSeance);
+        List<Map<String, Object>> lstSeance = tp.lstSeancesNouveau(codeTP);
         request.setAttribute("lstSeance", lstSeance);
 
         if (nbLigne == 0){
@@ -40,7 +41,6 @@ public class ServletAnnulerCours extends HttpServlet {
         }else {
             request.getRequestDispatcher("/listeSeances.jsp").forward(request, response);
         }
-
 
     }
 

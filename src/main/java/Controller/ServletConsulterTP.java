@@ -21,7 +21,7 @@ public class ServletConsulterTP extends HttpServlet {
 
         HttpSession session = request.getSession(true);
 
-      String codeTP = request.getParameter("codeTP");
+        String codeTP = request.getParameter("codeTP");
         session.setAttribute("codeTP", codeTP);
         
 
@@ -29,7 +29,10 @@ public class ServletConsulterTP extends HttpServlet {
         Tp tp = new Tp().getTP(codeTP);
 
         request.setAttribute("tp", tp);
-        List<Map<String, Object>> lstSeance = tp.lstSeances(codeTP);
+//        List<Map<String, Object>> lstSeance = tp.lstSeances(codeTP);
+//        request.setAttribute("lstSeance", lstSeance);
+
+        List<Map<String, Object>> lstSeance = tp.lstSeancesNouveau(codeTP);
         request.setAttribute("lstSeance", lstSeance);
 
         session.setAttribute("codeTP", codeTP);

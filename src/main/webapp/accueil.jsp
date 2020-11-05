@@ -15,7 +15,7 @@
 
 
 <head>
-    <title>Reservation Machine TP</title>
+    <title>R&eacute;servation Machine TP</title>
     <!-- Accepter les caractères spécieaux -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!--Logo icon ut1 capitole-->
@@ -44,22 +44,22 @@
                 <a class="nav-link disabled" href="accueil.html" style="color:#FFFFFF;">Mes reservations</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="reclamation.html" style="color:#FFFFFF;">Réclamation</a>
+                <a class="nav-link disabled" href="reclamation.html" style="color:#FFFFFF;">R&eacute;clamation</a>
             </li>
         </ul>
-            <a class="nav-link disabled" href="" style="color:#ffffff;">Déconnexion</a>
+            <a class="nav-link disabled" href="" style="color:#ffffff;">D&eacute;connexion</a>
     </div>
 </nav>
 
 <div id="global">
     <!-- Création du bouton Ajouter PA -->
     <div id="creer">
-        <button class="bouton" type="button" onclick="window.location.href = 'chosirDateEtu.jsp';"> Réserver une machine </button>
+        <button class="bouton" type="button" onclick="window.location.href = 'chosirDateEtu.jsp';"> R&eacute;server une machine </button>
     </div>
     <br/>
     <div id="titrePage">
         <!-- Titre du tableau-->
-        <h2>Liste des machines que j'ai réservé :</h2>
+        <h2>Liste des machines que j'ai r&eacute;serv&eacute;es :</h2>
     </div>
 
 
@@ -73,10 +73,10 @@
     <div id="conteneurTab">
         <table id="myTable">
             <tr class="header">
-                <th id="numS">Numéro salle</th>
-                <th id="numM">Numéro machine</th>
-                <th id="DateR">Date réservation </th>
-                <th id="HeureDebR">Periode </th><!--On a pas besoin? -->
+                <th id="numS">Num&eacute;ro salle</th>
+                <th id="numM">Num&eacute;ro machine</th>
+                <th id="DateR">Date r&eacute;servation </th>
+                <th id="HeureDebR">P&eacute;riode </th><!--On a pas besoin? -->
                 <th class="annuler"></th>
             </tr>
             <!--Exemple de données. Il faut remplacer avec code java qui recupérer les vrais infos dans la bd-->

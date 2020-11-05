@@ -2,9 +2,10 @@
 <%@ page import="java.util.List" %>
 <%@ page import="Model.Tp" %>
 <%@ page import="Model.Groupe" %>
+<%@ page import="java.util.Date" %>
 <html>
 <head>
-    <title>Liste des Seances de TP</title>
+    <title>Liste des S&eacute;ances de TP</title>
     <!-- Accepter les caractères spécieaux -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!--Logo icon ut1 capitole-->
@@ -40,7 +41,7 @@
             </li>
             </li>
         </ul>
-        <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
+        <a class="nav-link disabled" href="" style="color:#FFFFFF;">D&eacute;connexion</a>
     </div>
 </nav>
 
@@ -63,7 +64,7 @@
 
             out.print("<p>Nom de TP: " + tp.getNomTP() + "</p>");
 
-            out.print("<p>Nombre d'etudiant total: " + tp.getNbEtuTotal(codeTP).get("nb_total") + "</p>");
+            out.print("<p>Nombre d'&eacute;tudiant total: " + tp.getNbEtuTotal(codeTP).get("nb_total") + "</p>");
             out.print("<a class='bouton' href=choisirDateTp.jsp?codeTP="+ tp.getCodeTp()
                     + "&codeG=" + session.getAttribute("codeG") + "> Reserver une salle</a>");
 
@@ -72,16 +73,33 @@
 
 
     <div id="conteneurTab">
-        <h2>Liste des seances: </h2>
+        <h2>Liste des s&eacute;ances: </h2>
         <table id="myTable">
             <tr class="header">
                 <th id="salleC">Salle</th>
                 <th id="dateC">Date</th>
                 <th id="periodeC">Cr&eacute;neau Horaire </th>
-                <th id="nbReser">Nombre etudiants deja reserves une machine</th>
+                <th id="nbReser">Nombre &eacute;tudiants d&eacute;j&agrave; r&eacute;serv&eacute;s une machine</th>
                 <%--                <th id="nbPasMachine">Nombre d'etudiants sans machine</th>--%>
                 <th id="annuler"></th>
             </tr>
+
+<%--            <%--%>
+<%--                List<Map<String, Object>> lstSeance = (List<Map<String, Object>>) request.getAttribute("lstSeance");--%>
+
+<%--                if (lstSeance != null){--%>
+<%--                    for (Map<String, Object> seance : lstSeance) {--%>
+<%--                        out.print("<tr><td>"+seance.get("numS")+"</td>");--%>
+<%--                        out.print("<td>"+seance.get("date")+"</td>");--%>
+<%--                        out.print("<td>"+seance.get("description")+"</td>");--%>
+<%--                        out.print("<td>"+seance.get("nb_reserve")+"</td>");--%>
+<%--                        out.print("<td><a class='bouton' href=ServletAnnulerCours?codeTP="+ tp.getCodeTp()--%>
+<%--                                + "&numS=" + seance.get("numS") + "&date=" + seance.get("date") + "&description=" +--%>
+<%--                                seance.get("description") + "> Annuler</a></td></tr>");--%>
+<%--                    }--%>
+<%--                }--%>
+<%--            %>--%>
+
 
             <%
                 List<Map<String, Object>> lstSeance = (List<Map<String, Object>>) request.getAttribute("lstSeance");
@@ -91,19 +109,15 @@
                         out.print("<tr><td>"+seance.get("numS")+"</td>");
                         out.print("<td>"+seance.get("date")+"</td>");
                         out.print("<td>"+seance.get("description")+"</td>");
-                        out.print("<td>"+seance.get("nb_reserve")+"</td>");
-//                    out.print("<td>"+seance.get("nbPasMachine")+"</td>");
+                        //out.print("<td>"+seance.get("nb_reserve")+"</td>");
+                        out.print("<td>"+tp.lstSeancesFinal((Integer ) seance.get("idTP"),(Date) seance.get("date"),
+                                (Integer ) seance.get("periode"))+"</td>");
+
                         out.print("<td><a class='bouton' href=ServletAnnulerCours?codeTP="+ tp.getCodeTp()
                                 + "&numS=" + seance.get("numS") + "&date=" + seance.get("date") + "&description=" +
                                 seance.get("description") + "> Annuler</a></td></tr>");
-
-
-//                    codeTP, numS, date, description, codeG
-////                    request.setAttribute("seance", seance);
-////                    request.getRequestDispatcher("/GestionMachine/ServletAnnulerCours").forward(request,response);
                     }
                 }
-
             %>
         </table>
         </br>

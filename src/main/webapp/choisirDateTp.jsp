@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Reservation Tp</title>
+    <title>R&eacute;servation Tp</title>
     <!-- Accepter les caractères spécieaux -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!--Logo icon ut1 capitole-->
@@ -59,7 +59,7 @@
             </li>
             </li>
         </ul>
-        <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
+        <a class="nav-link disabled" href="" style="color:#FFFFFF;">D&eacute;connexion</a>
     </div>
 </nav>
 
@@ -69,12 +69,12 @@
 <div id="global">
     <form method="get" action="/GestionMachine/ServletChercheSalleTp">
 
-        <h2>Veuillez choisir une periode: </h2>
+        <h2>Veuillez choisir une p&eacute;riode: </h2>
         <!--Champ pour la date-->
         <label for="date">Date:</label>
         <input id="date" type="date" name="date" value="2020-10-20">
         <!--Champ pour le créneau horaire-->
-        <label for="etat">Créneau horaire :</label>
+        <label for="etat">Cr&eacute;neau horaire :</label>
         <select name="periode">
             <option value ="1">8:00-9:30</option>
             <option value ="2">9:30-11:00</option>
