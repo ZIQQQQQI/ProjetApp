@@ -22,7 +22,7 @@ public class Salle {
     }
 
     public Salle() {
-        this.template=new JdbcTemplate(JDBCUtils.getDataSource());;
+        this.template=new JdbcTemplate(JDBCUtils.getDataSource());
     }
 
     public List<Map<String,Object>> trouveSalleLibre(String periode,String date){
