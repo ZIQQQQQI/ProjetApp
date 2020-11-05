@@ -44,10 +44,12 @@
             <li class="nav-item">
                 <a class="nav-link disabled" href="listTp.jsp" style="color:#FFFFFF;">Consulter les TPs</a>
             </li>
+            </li>
         </ul>
         <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
     </div>
 </nav>
+
 
 <div id="global">
     <br/>
