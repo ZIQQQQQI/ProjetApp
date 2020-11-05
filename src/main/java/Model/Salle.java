@@ -40,6 +40,12 @@ public class Salle {
         return  this.template.queryForList(sql,date,periode,date,periode,date,periode);
     }
 
+    public void reserveSalle(String codeTp,String codeS,String codeG,String date,String periode){
+        String sql="insert into allouer values(?,?,?,?,?)";
+        System.out.println(sql+" "+codeTp+" "+codeS+" "+codeG+" "+date+" "+periode);
+        this.template.update(sql,codeTp,codeS,codeG,date,periode);
+    }
+
     //pas fini pour un idu
     public List<Salle> trouveListeDeSalle(String date, String periode,Integer idEtu){
 

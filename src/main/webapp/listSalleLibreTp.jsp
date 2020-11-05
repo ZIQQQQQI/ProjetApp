@@ -58,13 +58,15 @@
             <th></th>
         </tr>
         <%
+            String date=request.getParameter("date");
+            String periode=request.getParameter("periode");
             List<Map<String,Object>> list=(List<Map<String,Object>>) request.getAttribute("lstS");
             for (Map<String,Object> m:list
             ) {
                 out.print("<tr><td>"+(String) m.get("numS")+"</td>");
                 out.print("<td>"+(Long) m.get("nbtotal")+"</td>");
                 out.print("<td>"+(Long)m.get("nbreservee")+"</td>");
-                out.print("<td><a class='bouton' href=>Reserver</a></td></tr>");
+                out.print("<td><a class='bouton' href=ServletReserverSalle?codeS="+m.get("codeS")+"&date="+date+"&periode="+periode+">Reserver</a></td></tr>");
             }
 
         %>
