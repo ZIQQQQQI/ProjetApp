@@ -91,10 +91,13 @@
                     out.print("<td>"+seance.get("nb_reserve")+"</td>");
 //                    out.print("<td>"+seance.get("nbPasMachine")+"</td>");
                     out.print("<td><a class='bouton' href=ServletAnnulerCours?codeTP="+ tp.getCodeTp()
-                            + "&seance=" + seance + "> Annuler</a></td></tr>");
+                            + "&numS=" + seance.get("numS") + "&date=" + seance.get("date") + "&description=" +
+                            seance.get("description") + "> Annuler</a></td></tr>");
 
-                    request.setAttribute("seance", seance);
-                    request.getRequestDispatcher("/GestionMachine/ServletAnnulerCours").forward(request,response);
+
+//                    codeTP, numS, date, description, codeG
+////                    request.setAttribute("seance", seance);
+////                    request.getRequestDispatcher("/GestionMachine/ServletAnnulerCours").forward(request,response);
                 }
             %>
         </table>
