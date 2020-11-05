@@ -1,7 +1,6 @@
 package Controller;
 
-import Outil.JDBCUtils;
-import org.springframework.jdbc.core.JdbcTemplate;
+import Model.Utilisateur;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/ServletSupprimerEtudiant")
 public class ServletSupprimerEtudiant extends HttpServlet {
@@ -17,13 +17,16 @@ public class ServletSupprimerEtudiant extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         String idU=request.getParameter("idU");
 
-        String sqlReser = "delete from reserver where identifiantU = ?;";
-        String sqlEtu = "delete from utilisateur where identifiantU = ?;";
+        Utilisateur utilisateur = new Utilisateur();
+        utilisateur.supprimerEtu(idU);
 
-        JdbcTemplate jdbcTem = new JdbcTemplate(JDBCUtils.getDataSource());
-        jdbcTem.update(sqlReser,idU);
-        jdbcTem.update(sqlEtu,idU);
-        response.addHeader("refresh", "0,URL = /GestionMachine/detailFormation.jsp");
+        String codeG = request.getParameter("codeG");
+        request.setAttribute("codeG", codeG);
+
+        List<Utilisateur> lstU = utilisateur.lstEtu(codeG);
+        request.setAttribute("lstU", lstU);
+
+        request.getRequestDispatcher("/listeEtudiants.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

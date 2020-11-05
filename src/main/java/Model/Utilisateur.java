@@ -40,6 +40,13 @@ public class Utilisateur {
 
     }
 
+    public void supprimerEtu(String idU){
+        String sql = "delete from reserver where identifiantU =" + idU;
+        String sqlEtu = "delete from utilisateur where identifiantU =" + idU;
+        jdbcTem.update(sql);
+        jdbcTem.update(sqlEtu);
+    }
+
     public boolean siRer(String idU,String date,String periode){
         String sql="select count(*) as res from reserver  where identifiantU = ?  and date =? and periode = ?";
         Long res=(Long) this.jdbcTem.queryForList(sql,idU,date,periode).get(0).get("res");
@@ -48,8 +55,13 @@ public class Utilisateur {
     }
 
     public List<Utilisateur> lstEtu(String id){
-        String sql = "select identifiantU, nomU, prenomU from utilisateur where codeG =" + codeG + ";";
+        String sql = "select identifiantU, nomU, prenomU from utilisateur where codeG =" + id + ";";
         return jdbcTem.query(sql,new BeanPropertyRowMapper<>(Utilisateur.class));
+    }
+
+    public List<Groupe> getLstGroupe(String id){
+        String sql = "select g.codeG, g.nomG from groupe g, diriger d where g.codeG = d. codeG and d.identifiantU =" + id;
+        return jdbcTem.query(sql,new BeanPropertyRowMapper<>(Groupe.class));
     }
 
 
