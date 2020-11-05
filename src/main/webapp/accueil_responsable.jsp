@@ -47,7 +47,7 @@
 		<!--Champ qui contient la liste des TP de l'enseignant
 			Récuperer les vrais valeurs dans la BD-->
 		<label for="nomTP">Liste de mes groupes:</label>
-
+		<input type="hidden" name="ajouter" value="0">
 		<select name="nomTP" id="nomTP">
 			<%
 				String id = (String) session.getAttribute("id");

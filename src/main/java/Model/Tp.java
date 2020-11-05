@@ -15,15 +15,21 @@ public class Tp {
 
     public Tp() {
         this.jdbcTem = new JdbcTemplate(JDBCUtils.getDataSource());
+
     }
+
+
 
     public List<Tp> listTP(String codeG){
         String sql="select distinct * from tp where codeG="+codeG;
         return this.jdbcTem.query(sql,new BeanPropertyRowMapper<>(Tp.class));
+
+
     }
 
-    public Tp getTP(String codeTP){
-        String sql = "select * from tp where codeTP=" + codeTP;
+
+    public Tp getTP(String codeTp){
+        String sql = "select * from tp where codeTP=" + codeTp;
         return this.jdbcTem.query(sql, new BeanPropertyRowMapper<Tp>(Tp.class)).get(0);
     }
 
@@ -44,6 +50,13 @@ public class Tp {
 
 
 
+
+
+
+
+
+
+
     //get et set
     public Integer getCodeTp() {
         return codeTp;
@@ -60,14 +73,13 @@ public class Tp {
     public void setNomTP(String nomTP) {
         this.nomTP = nomTP;
     }
-
+    public void setCodeG(String codeG) {
+        this.codeG = codeG;
+    }
     public String getCodeG() {
         return codeG;
     }
 
-    public void setCodeG(String codeG) {
-        this.codeG = codeG;
-    }
 }
 
 
