@@ -14,7 +14,7 @@ import java.util.List;
 public class ServletConsulterFor extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        String codeG = request.getParameter("selectFormation");
+        String codeG = request.getParameter("nomTP");
         HttpSession session = request.getSession(true);
         session.setAttribute("codeG", codeG);
         Utilisateur utilisateur = new Utilisateur();
