@@ -1,5 +1,6 @@
 <%@ page import="Model.Utilisateur" %>
 <%@ page import="java.util.List" %>
+<%@ page import="Model.Tp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +34,7 @@
             <a class="nav-link disabled" href="accueil_responsable.jsp" style="color:#FFFFFF;">Accueil</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link disabled" href="listeEtudiants.jsp" style="color:#FFFFFF;">Consulter liste des Etudiants</a>
+            <a class="nav-link disabled" href="ServletConsulterFor?ajouter=2" style="color:#FFFFFF;">Consulter liste des Etudiants</a>
         </li>
         <li class="nav-item">
             <a class="nav-link disabled" href="listTp.jsp" style="color:#FFFFFF;">Consulter les TPs</a>
@@ -50,8 +51,9 @@
   <br/>
 	  <div id="titrePage">
 		  <%
-			  String codeG = (String) request.getAttribute("codeG");
-			  out.print("<h2>Groupe: " + codeG + "</h2>");
+			  String codeG = (String) session.getAttribute("codeG");
+			  Tp tp = new Tp();
+			  out.print("<h2>Groupe: " + tp.getTP(codeG).getNomTP() + "</h2>");
 		  %>
 	  </div>
 
@@ -59,15 +61,12 @@
 	  <!-- Titre du tableau-->
 	  <h2>Ajouter un nouvel étudiant dans le Groupe:</h2>
 	</div>
-
-
-	  <form method="get" action="/GestionMachine/ServletAddEtu">
+	<form>
+	  <form method="get" action="/GestionMachine/ServletConsulterFor">
   		<!--Champ identifiant-->
 		<label for="identifiantU">Identifiant:</label>
 		<input type="text" name="identifiantU" id="identifiantU" placeholder="2*******" />
   		<!--Champ mot de passe-->
-		<label for="motdepasseU">Mot de passe:</label>
-		<input type="text" name="motdepasseU" id="motdepasseU" placeholder="00000N" />
   		<!--Champ nom-->
 		<label for="nomU">Nom:</label>
 		<input type="text" name="nomU" id="nomU" placeholder="TRUMP" />
@@ -75,13 +74,17 @@
 		<label for="identifiantU">Prenom:</label>
 		<input type="text" name="prenomU" id="prenomU" placeholder="DONALD" />
   		<!--Champ Groupe, qui est automatique-->
-		<label for="nomG">Groupe:</label>
-		<input type="text" name="nomG" id="nomG" value="" readonly="readonly" />
+		<input type="hidden" value="1" name="ajouter">
 		</br>
 		<!-- Création du bouton Ajouter de type Submit-->
-	    <input type="submit" id="ajouter" value="Ajouter" name="Ajouter" class="bouton"/>
+		  <%
+			  String add=(String) request.getAttribute("add");
+			  if(add.equals("pasok")){
+			  	out.print("<p style='color:red;'>Exsit etudiant</p>");
+			  }
+		  %>
+	    <input type="submit" id="ajouter"  class="bouton"/>
 	</form>
-
 	<div id="titrePage">
 	  <!-- Titre du tableau-->
 	  <h2>Liste des etudiants du Groupe:</h2>
@@ -104,13 +107,13 @@
 					out.print("<tr><td>"+utilisateur.getIdentifiantU()+"</td>");
 					out.print("<td>"+utilisateur.getNomU()+"</td>");
 					out.print("<td>"+utilisateur.getPrenomU()+"</td>");
-					out.print("<td><a class='bouton' href=ServletSupprimerEtudiant?idU="+ utilisateur.getIdentifiantU()
-							+ "&codeG="+ codeG +"> Supprimer</a></td></tr>");
+					out.print("<td><a class='bouton' href=ServletConsulterFor?idU="+ utilisateur.getIdentifiantU()
+							+ "&ajouter=3> Supprimer</a></td></tr>");
 				}
 			%>
 		</table>
 
 	</div>  
-  </div>
+
 </body>
 </html>
