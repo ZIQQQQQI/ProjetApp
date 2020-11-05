@@ -19,6 +19,7 @@ public class ServletConsulterFor extends HttpServlet {
         HttpSession session = request.getSession(true);
         Utilisateur utilisateur = new Utilisateur();
         String ajouter = request.getParameter("ajouter");
+
         if(ajouter.equals("0")){
             String codeG = request.getParameter("nomTP");
             session.setAttribute("codeG", codeG);

@@ -24,6 +24,8 @@ public class ServletChercheSalleTp extends HttpServlet {
         String codeTp=request.getParameter("codeTp");
         Salle salle=new Salle();
         List<Map<String,Object>> list=salle.trouveSalleLibre(periode,date);
+        request.setAttribute("codeTp", codeTp);
+
         request.setAttribute("lstS", list);
         request.getRequestDispatcher("/listSalleLibreTp.jsp").forward(request, response);
     }

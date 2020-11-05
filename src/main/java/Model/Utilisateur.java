@@ -22,14 +22,19 @@ public class Utilisateur {
 
     public Utilisateur login(String id,String mdp){
         Utilisateur user = null;
-        String sql = "select * from utilisateur where identifiantU = "+id/*+" and motdepasseU ="+mdp*/;
-        Utilisateur utilisateur = this.jdbcTem.query(sql,new BeanPropertyRowMapper<Utilisateur>(Utilisateur.class)).get(0);
-        if (utilisateur.getModepasseU().equals(mdp)){
-            user = utilisateur;
+
+        String sqlIdent = "select count(*) as nb from utilisateur where identifiantU = "+id/*+" and motdepasseU ="+mdp*/;
+        Long nbLigne = (Long) this.jdbcTem.queryForList(sqlIdent).get(0).get("nb");
+
+        if (nbLigne != 0){
+            String sql = "select * from utilisateur where identifiantU = "+id/*+" and motdepasseU ="+mdp*/;
+            Utilisateur utilisateur = this.jdbcTem.query(sql,new BeanPropertyRowMapper<Utilisateur>(Utilisateur.class)).get(0);
+
+            if (utilisateur.getModepasseU().equals(mdp)){
+                user = utilisateur;
+            }
         }
         return user;
-
-
     }
 
     public List<Map<String,Object>> reserEtu(String id){

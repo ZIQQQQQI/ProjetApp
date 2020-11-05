@@ -28,7 +28,6 @@ public class ServletLogin extends HttpServlet {
 
         if(user != null){
             HttpSession session = request.getSession(true);
-            // String id = (String)session.getAttribute("id");
             session.setAttribute("id", login);
             if(user.getTypeU().equals("etudiant")){
                 response.addHeader("refresh", "0,URL = /GestionMachine/accueil.jsp");

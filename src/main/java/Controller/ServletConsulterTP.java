@@ -17,16 +17,22 @@ import java.util.Map;
 public class ServletConsulterTP extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
+        response.setHeader("content-type", "text/html;charset=UTF-8");
 
-        String codeTP = request.getParameter("codeTP");
         HttpSession session = request.getSession(true);
-        session.setAttribute("codeTP", codeTP);
 
-        Tp tp = new Tp().getTP("codeTP");
+      String codeTP = request.getParameter("codeTP");
+        session.setAttribute("codeTP", codeTP);
+        
+
+
+        Tp tp = new Tp().getTP(codeTP);
+
         request.setAttribute("tp", tp);
         List<Map<String, Object>> lstSeance = tp.lstSeances(codeTP);
         request.setAttribute("lstSeance", lstSeance);
 
+        session.setAttribute("codeTP", codeTP);
         request.getRequestDispatcher("/listeSeances.jsp").forward(request, response);
 
     }
