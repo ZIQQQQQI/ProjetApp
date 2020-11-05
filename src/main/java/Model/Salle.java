@@ -26,18 +26,13 @@ public class Salle {
     }
 
     public List<Map<String,Object>> trouveSalleLibre(String periode,String date){
-        String sql="select distinct s.numS, s.codeS, count(m.codeM) as nbtotal, table2.nbreservee " +
-                "from salle as s, machine as m,(select distinct s.numS, s.codeS, ifnull(table1.nbre,0) as nbreservee from salle " +
-                "as s left join (select count(r1.identifiantU) as nbre, a1.codeS " +
-                "from reserver as r1, allouer as a1, machine as m1 where r1.date = a1.date and " +
-                "r1.periode = a1.periode and a1.date =? and a1.periode =? and " +
-                "m1.codeM = r1.codeM and m1.codeS = a1.codeS group by a1.codeS) as table1 on s.codeS = table1.codeS " +
-                "where s.codeS not in(select a.codeS from allouer as a where a.date = ? and a.periode = ?)) as table2 " +
-                "where s.codeS = m.codeS " +
-                "and table2.codeS = s.codeS and s.codeS not in(select a.codeS from allouer as a where a.date = ? and a.periode = ?) " +
-                "group by s.numS, s.codeS;";
-        System.out.println(sql+" "+periode+"  "+date);
-        return  this.template.queryForList(sql,date,periode,date,periode,date,periode);
+
+        String sql="SELECT S.codeS , S.numS ,(select count(M1.codeM) " +
+                "from machine M1 WHERE M1.codeS = S.codeS group by S.codeS) as nbtotal,(SELECT COUNT(M.codeM) FROM machine M wHERE S.codeS = M.codeS AND M.codeM not in " +
+                "( select R.codeM FROM reserver R , calenperiode C WHERE R.periode=C.periode and R.date=? and C.periode =? ))" +
+                "as nbreservee FROM salle S;";
+
+        return  this.template.queryForList(sql,date,periode);
     }
 
     public void reserveSalle(String codeTp,String codeS,String codeG,String date,String periode){
