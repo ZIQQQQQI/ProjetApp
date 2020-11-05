@@ -20,13 +20,13 @@ public class ServletConsulterTP extends HttpServlet {
 
         String codeTP = request.getParameter("codeTP");
         HttpSession session = request.getSession(true);
-        session.setAttribute("codeTP", codeTP);
 
-        Tp tp = new Tp().getTP("codeTP");
+        Tp tp = new Tp().getTP(codeTP);
         request.setAttribute("tp", tp);
         List<Map<String, Object>> lstSeance = tp.lstSeances(codeTP);
         request.setAttribute("lstSeance", lstSeance);
 
+        session.setAttribute("codeTP", codeTP);
         request.getRequestDispatcher("/listeSeances.jsp").forward(request, response);
 
     }
