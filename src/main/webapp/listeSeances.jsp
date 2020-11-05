@@ -75,8 +75,8 @@
             <tr class="header">
                 <th id="salleC">Salle</th>
                 <th id="dateC">Date</th>
-                <th id="periodeC">Créneau Horaire </th>
-                <th id="nbReser">Nombre machine deja reservees </th>
+                <th id="periodeC">Cr&eacute;neau Horaire </th>
+                <th id="nbReser">Nombre etudiants deja reserves une machine</th>
                 <%--                <th id="nbPasMachine">Nombre d'etudiants sans machine</th>--%>
                 <th id="annuler"></th>
             </tr>
@@ -84,21 +84,24 @@
             <%
                 List<Map<String, Object>> lstSeance = (List<Map<String, Object>>) request.getAttribute("lstSeance");
 
-                for (Map<String, Object> seance : lstSeance) {
-                    out.print("<tr><td>"+seance.get("numS")+"</td>");
-                    out.print("<td>"+seance.get("date")+"</td>");
-                    out.print("<td>"+seance.get("description")+"</td>");
-                    out.print("<td>"+seance.get("nb_reserve")+"</td>");
+                if (lstSeance != null){
+                    for (Map<String, Object> seance : lstSeance) {
+                        out.print("<tr><td>"+seance.get("numS")+"</td>");
+                        out.print("<td>"+seance.get("date")+"</td>");
+                        out.print("<td>"+seance.get("description")+"</td>");
+                        out.print("<td>"+seance.get("nb_reserve")+"</td>");
 //                    out.print("<td>"+seance.get("nbPasMachine")+"</td>");
-                    out.print("<td><a class='bouton' href=ServletAnnulerCours?codeTP="+ tp.getCodeTp()
-                            + "&numS=" + seance.get("numS") + "&date=" + seance.get("date") + "&description=" +
-                            seance.get("description") + "> Annuler</a></td></tr>");
+                        out.print("<td><a class='bouton' href=ServletAnnulerCours?codeTP="+ tp.getCodeTp()
+                                + "&numS=" + seance.get("numS") + "&date=" + seance.get("date") + "&description=" +
+                                seance.get("description") + "> Annuler</a></td></tr>");
 
 
 //                    codeTP, numS, date, description, codeG
 ////                    request.setAttribute("seance", seance);
 ////                    request.getRequestDispatcher("/GestionMachine/ServletAnnulerCours").forward(request,response);
+                    }
                 }
+
             %>
         </table>
         </br>
