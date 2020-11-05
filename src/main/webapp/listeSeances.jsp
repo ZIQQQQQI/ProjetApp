@@ -33,15 +33,17 @@
                 <a class="nav-link disabled" href="accueil_responsable.jsp" style="color:#FFFFFF;">Accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="listeEtudiants.jsp" style="color:#FFFFFF;">Consulter liste des Etudiants</a>
+                <a class="nav-link disabled" href="ServletConsulterFor?ajouter=2" style="color:#FFFFFF;">Consulter liste des Etudiants</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="consulterTP.jsp" style="color:#FFFFFF;">Consulter les TPs</a>
+                <a class="nav-link disabled" href="listTp.jsp" style="color:#FFFFFF;">Consulter les TPs</a>
+            </li>
             </li>
         </ul>
         <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
     </div>
 </nav>
+
 
 <div id="global">
     <div id="titrePage">

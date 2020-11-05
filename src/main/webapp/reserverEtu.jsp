@@ -29,23 +29,28 @@
 <!-- Création de la barre de navigation -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #B22222;">
 
-    <a class="navbar-brand" href="accueil.html"><img src="Images/logo_grid.gif" alt="Logo ut1"></a>
+    <a class="navbar-brand" href="accueil_responsable.jsp"><img src="Images/logo_grid.gif" alt="Logo ut1"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-           <ul class="navbar-nav mr-auto">
-               <li class="nav-item">
-                   <a class="nav-link disabled" href="/GestionMachine/accueil.jsp" style="color:#FFFFFF;">Mes reservations</a>
-                            <li class="nav-item">
-                  <a class="nav-link disabled" href="reclamation.html" style="color:#FFFFFF;">Réclamation</a>
-                 </li>
-
-    </ul>
-    <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link disabled" href="accueil_responsable.jsp" style="color:#FFFFFF;">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="ServletConsulterFor?ajouter=2" style="color:#FFFFFF;">Consulter liste des Etudiants</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="listTp.jsp" style="color:#FFFFFF;">Consulter les TPs</a>
+            </li>
+            </li>
+        </ul>
+        <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
     </div>
 </nav>
+
 
 <div id="global">
     <!-- Création du bouton Ajouter PA -->
