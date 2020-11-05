@@ -14,6 +14,7 @@ import java.util.List;
 @WebServlet("/ServletConsulterFor")
 public class ServletConsulterFor extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setHeader("content-type", "text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         HttpSession session = request.getSession(true);
         Utilisateur utilisateur = new Utilisateur();

@@ -76,7 +76,7 @@
 
                 %>
             </select>
-            <INPUT TYPE="submit">Chercher les ordinateurs disponible</INPUT>
+            <INPUT TYPE="submit" class="bouton">Chercher les ordinateurs disponible</INPUT>
         </FORM>
     </div>
 

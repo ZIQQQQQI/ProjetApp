@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <!-- Le fichier est associé à styleAccueil.css qui est chargé de la mise en forme-->
     <link rel="stylesheet" href="CSS/styleAccueil.css">
-    <link rel="stylesheet" href="../../../../../../../../../Dcm/UT1C/2021_M2/S1/Java/SemBloquee2/Interfaces/CSS/styleForm.css">
+    <link rel="stylesheet" href="CSS/styleForm.css">
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -40,9 +40,7 @@
         <li class="nav-item">
             <a class="nav-link disabled" href="listTp.jsp" style="color:#FFFFFF;">Consulter les TPs</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="choisirDateTp.jsp" style="color:#FFFFFF;">Réserver une salle</a>
-        </li>
+       </li>
         </ul>
             <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
         </div>
@@ -53,8 +51,10 @@
 	  <div id="titrePage">
 		  <%
 			  String codeG = (String) session.getAttribute("codeG");
+
 			  Groupe groupe = new Groupe();
 			  out.print("<h2>Groupe: " + groupe.getGroupe(codeG).getNomG() + "</h2>");
+
 		  %>
 	  </div>
 
