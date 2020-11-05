@@ -66,14 +66,14 @@
 	  <form method="get" action="/GestionMachine/ServletConsulterFor">
   		<!--Champ identifiant-->
 		<label for="identifiantU">Identifiant:</label>
-		<input type="text" name="identifiantU" id="identifiantU" placeholder="2*******" />
+		<input type="text" name="identifiantU" id="identifiantU" required placeholder="2*******" />
   		<!--Champ mot de passe-->
   		<!--Champ nom-->
 		<label for="nomU">Nom:</label>
-		<input type="text" name="nomU" id="nomU" placeholder="TRUMP" />
+		<input type="text" name="nomU" id="nomU" placeholder="TRUMP" rel="" />
   		<!--Champ prenom-->
 		<label for="identifiantU">Prenom:</label>
-		<input type="text" name="prenomU" id="prenomU" placeholder="DONALD" />
+		<input type="text" name="prenomU" id="prenomU" placeholder="DONALD" required/>
   		<!--Champ Groupe, qui est automatique-->
 		<input type="hidden" value="1" name="ajouter">
 		</br>

@@ -62,6 +62,9 @@
         <a class="nav-link disabled" href="" style="color:#FFFFFF;">Déconnexion</a>
     </div>
 </nav>
+<%
+    String codeTp=request.getParameter("codeTP");
+%>
 <div id="global">
     <form method="get" action="/GestionMachine/ServletChercheSalleTp">
 
@@ -81,7 +84,7 @@
             <option value="7">17:00-18:30</option>
 
         </select>
-        <input type="hidden" name="codeTp" value="1">
+        <input type="hidden" name="codeTp" value=<%out.print(codeTp);%>
 
         </br>
         <!--Conteneur des boutons Enregistrer et Supprimer-->

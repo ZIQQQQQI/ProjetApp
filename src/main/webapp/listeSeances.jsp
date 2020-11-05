@@ -60,9 +60,11 @@
             Tp tp = (Tp) request.getAttribute("tp");
 
             out.print("<p>Nom de TP: " + tp.getNomTP() + "</p>");
+
             out.print("<p>Nombre d'etudiant total: " + tp.getNbEtuTotal(codeTP).get("nb_total") + "</p>");
             out.print("<a class='bouton' href=choisirDateTp?codeTP="+ tp.getCodeTp()
                     + "&codeG=" + session.getAttribute("codeG") + "> Reserver une salle</a>");
+
         %>
     </div>
 

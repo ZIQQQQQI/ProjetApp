@@ -49,12 +49,14 @@ public class Tp {
     }
 
 
+
     public int annulerCours (String codeTP, String numS, String date, String description, String codeG){
         String sql = "delete from allouer where codeTP = ? and codeS = (select codeS from salle where numS = ?) " +
                 "and codeG = ? and date = ? and periode = (select periode from calenperiode " +
                 "where description=?)";
         return this.jdbcTem.update(sql, codeTP, numS, codeG, date, description);
     }
+
 
 
     //get et set
