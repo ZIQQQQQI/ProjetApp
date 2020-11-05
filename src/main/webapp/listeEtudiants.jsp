@@ -1,6 +1,7 @@
 <%@ page import="Model.Utilisateur" %>
 <%@ page import="java.util.List" %>
 <%@ page import="Model.Tp" %>
+<%@ page import="Model.Groupe" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,8 +51,10 @@
 	  <div id="titrePage">
 		  <%
 			  String codeG = (String) session.getAttribute("codeG");
-			  Tp tp = new Tp();
-			  out.print("<h1>Groupe: " + tp.getTP(codeG).getNomTP() + "</h1>");
+
+			  Groupe groupe = new Groupe();
+			  out.print("<h2>Groupe: " + groupe.getGroupe(codeG).getNomG() + "</h2>");
+
 		  %>
 	  </div>
 
@@ -59,7 +62,7 @@
 	  <!-- Titre du tableau-->
 	  <h2>Ajouter un nouvel étudiant dans le Groupe:</h2>
 	</div>
-	<form>
+
 	  <form method="get" action="/GestionMachine/ServletConsulterFor">
   		<!--Champ identifiant-->
 		<label for="identifiantU">Identifiant:</label>
@@ -112,6 +115,6 @@
 		</table>
 
 	</div>  
-
+  </div>
 </body>
 </html>

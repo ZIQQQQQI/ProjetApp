@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Groupe;
 import Model.Tp;
 
 import javax.servlet.ServletException;
@@ -21,11 +22,12 @@ public class ServletConsulterTP extends HttpServlet {
         HttpSession session = request.getSession(true);
         session.setAttribute("codeTP", codeTP);
 
-        Tp tp = new Tp();
+        Tp tp = new Tp().getTP("codeTP");
+        request.setAttribute("tp", tp);
         List<Map<String, Object>> lstSeance = tp.lstSeances(codeTP);
         request.setAttribute("lstSeance", lstSeance);
 
-        request.getRequestDispatcher("listeSeances.jsp").forward(request, response);
+        request.getRequestDispatcher("/listeSeances.jsp").forward(request, response);
 
     }
 
