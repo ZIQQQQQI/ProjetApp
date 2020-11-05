@@ -65,6 +65,7 @@ public class Tp {
                 " where u.identifiantU = r.identifiantU and a.codeG = u.codeG and a.codeTP = ? and r.date = ? and r.periode =?" +
                 " and r.periode = a.periode";
         return (Long) this.jdbcTem.queryForList(sql,codeTP,date,periode).get(0).get("nb");
+
     }
 
 

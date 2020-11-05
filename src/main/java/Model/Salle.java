@@ -27,12 +27,19 @@ public class Salle {
 
     public List<Map<String,Object>> trouveSalleLibre(String periode,String date){
 
+//        String sql="SELECT S.codeS , S.numS ,(select count(M1.codeM) " +
+//                "from machine M1 WHERE M1.codeS = S.codeS group by S.codeS) as nbtotal,(SELECT COUNT(M.codeM) FROM machine M wHERE S.codeS = M.codeS AND M.codeM not in " +
+//                "( select R.codeM FROM reserver R , calenperiode C WHERE R.periode=C.periode and R.date=? and C.periode =? ))" +
+//                "as nbreservee FROM salle S;";
         String sql="SELECT S.codeS , S.numS ,(select count(M1.codeM) " +
-                "from machine M1 WHERE M1.codeS = S.codeS group by S.codeS) as nbtotal,(SELECT COUNT(M.codeM) FROM machine M wHERE S.codeS = M.codeS AND M.codeM not in " +
-                "( select R.codeM FROM reserver R , calenperiode C WHERE R.periode=C.periode and R.date=? and C.periode =? ))" +
-                "as nbreservee FROM salle S;";
+                "                from machine M1 WHERE M1.codeS = S.codeS group by S.codeS) as nbtotal,(SELECT COUNT(M.codeM) FROM machine M " +
+                "                wHERE S.codeS = M.codeS AND M.codeM not in " +
+                "                ( select R.codeM FROM reserver R , calenperiode C WHERE R.periode=C.periode and R.date=? and C.periode =? ))" +
+                "                as nbreservee FROM salle S " +
+                "                wHERE s.codeS not in(" +
+                "                 select a.codeS FROM allouer a  WHERE  a.date=? and a.periode =? );";
 
-        return  this.template.queryForList(sql,date,periode);
+        return  this.template.queryForList(sql,date,periode,date,periode);
     }
 
     public void reserveSalle(String codeTp,String codeS,String codeG,String date,String periode){
