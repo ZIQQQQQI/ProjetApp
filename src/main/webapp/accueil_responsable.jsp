@@ -1,3 +1,7 @@
+<%@ page import="Model.Utilisateur" %>
+<%@ page import="java.util.List" %>
+<%@ page import="javax.swing.*" %>
+<%@ page import="Model.Groupe" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,15 +41,23 @@
 	  <!-- Titre du tableau-->
 	  <h2>Consulter un Groupe :</h2>
 	</div>
+
 	<form name="consult" method="get" action="/GestionMachine/ServletConsulterFor<%--detailFormation.jsp--%>">
+
 		<!--Champ qui contient la liste des TP de l'enseignant
 			Récuperer les vrais valeurs dans la BD-->
 		<label for="nomTP">Liste de mes groupes:</label>
+
 		<select name="nomTP" id="nomTP">
-			<!--Value=codeTP-->
-			<option value="1">M2 IPM Groupe 1</option>
-			<option value="2">M2 IPM Groupe 2</option>
-<%--			<option value="1"> Programmation M2 Miage IPM Grp1<!--On affiche ici nomTP--></option>--%>
+			<%
+				String id = (String) session.getAttribute("id");
+				Utilisateur utilisateur = new Utilisateur();
+				List<Groupe> lstG = utilisateur.getLstGroupe(id);
+
+				for (Groupe groupe : lstG) {
+					out.print("<option value='" + groupe.getCodeG()+ "'>" + groupe.getNomG() + "</option>");
+				}
+			%>
 		</select>
 
 		</br>

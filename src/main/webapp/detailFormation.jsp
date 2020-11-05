@@ -74,18 +74,7 @@
                 }
             %>
 
-<%--            <tr>--%>
-<%--                <td>20202020</td>--%>
-<%--                <td>CUSSAT-BLANC</td>--%>
-<%--                <td>SYLVAIN</td>--%>
-<%--                <td>--%>
-<%--                    <input type="submit" name="submit" value="Supprimer" class="bouton">--%>
-<%--&lt;%&ndash;                    <button class="bouton" type="button" class="bouton">Supprimer</button>&ndash;%&gt;--%>
-<%--                </td>--%>
-<%--            </tr>--%>
         </table>
-<%--    </form>--%>
-
 
 </div>
 <hr>
