@@ -25,11 +25,10 @@ public class ServletChercheSalleTp extends HttpServlet {
         Salle salle=new Salle();
         List<Map<String,Object>> list=salle.trouveSalleLibre(periode,date);
         request.setAttribute("lstS", list);
-
         request.getRequestDispatcher("/listSalleLibreTp.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        this.doPost(request,response);
     }
 }
