@@ -5,15 +5,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/ServletAjouterEtudiant")
-public class ServletAjouterEtudiant extends HttpServlet {
+@WebServlet(name = "ServletChercheSalleTp")
+public class ServletChercheSalleTp extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        response.setHeader("content-type", "text/html;charset=UTF-8");
+        HttpSession session = request.getSession(true);
+        request.setCharacterEncoding("utf-8");
+        String periode=request.getParameter("periode");
+        String date=request.getParameter("date");
+        String codeTp=request.getParameter("codeTp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doPost(request, response);
+
     }
 }

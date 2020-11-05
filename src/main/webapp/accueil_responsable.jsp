@@ -35,12 +35,12 @@
   <div id="global">
 	<div id="titrePage">
 	  <!-- Titre du tableau-->
-	  <h2>Consulter un TP :</h2>
+	  <h2>Consulter un Groupe :</h2>
 	</div>
 	<form name="consult" method="get" action="/GestionMachine/ServletConsulterFor<%--detailFormation.jsp--%>">
 		<!--Champ qui contient la liste des TP de l'enseignant
 			Récuperer les vrais valeurs dans la BD-->
-		<label for="nomTP">Liste de mes TP:</label>
+		<label for="nomTP">Liste de mes groupes:</label>
 		<select name="nomTP" id="nomTP">
 			<!--Value=codeTP-->
 			<option value="1">M2 IPM Groupe 1</option>
