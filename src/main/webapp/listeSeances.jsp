@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="Model.Tp" %>
 <%@ page import="Model.Groupe" %>
+<%@ page import="java.util.Date" %>
 <html>
 <head>
     <title>Liste des S&eacute;ances de TP</title>
@@ -33,7 +34,7 @@
                 <a class="nav-link disabled" href="accueil_responsable.jsp" style="color:#FFFFFF;">Accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="ServletConsulterFor?ajouter=2" style="color:#FFFFFF;">Consulter liste des &eacute;tudiants</a>
+                <a class="nav-link disabled" href="ServletConsulterFor?ajouter=2" style="color:#FFFFFF;">Consulter liste des Etudiants</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="listTp.jsp" style="color:#FFFFFF;">Consulter les TPs</a>
@@ -63,7 +64,7 @@
 
             out.print("<p>Nom de TP: " + tp.getNomTP() + "</p>");
 
-            out.print("<p>Nombre d'etudiant total: " + tp.getNbEtuTotal(codeTP).get("nb_total") + "</p>");
+            out.print("<p>Nombre d'&eacute;tudiant total: " + tp.getNbEtuTotal(codeTP).get("nb_total") + "</p>");
             out.print("<a class='bouton' href=choisirDateTp.jsp?codeTP="+ tp.getCodeTp()
                     + "&codeG=" + session.getAttribute("codeG") + "> Reserver une salle</a>");
 
@@ -83,6 +84,23 @@
                 <th id="annuler"></th>
             </tr>
 
+<%--            <%--%>
+<%--                List<Map<String, Object>> lstSeance = (List<Map<String, Object>>) request.getAttribute("lstSeance");--%>
+
+<%--                if (lstSeance != null){--%>
+<%--                    for (Map<String, Object> seance : lstSeance) {--%>
+<%--                        out.print("<tr><td>"+seance.get("numS")+"</td>");--%>
+<%--                        out.print("<td>"+seance.get("date")+"</td>");--%>
+<%--                        out.print("<td>"+seance.get("description")+"</td>");--%>
+<%--                        out.print("<td>"+seance.get("nb_reserve")+"</td>");--%>
+<%--                        out.print("<td><a class='bouton' href=ServletAnnulerCours?codeTP="+ tp.getCodeTp()--%>
+<%--                                + "&numS=" + seance.get("numS") + "&date=" + seance.get("date") + "&description=" +--%>
+<%--                                seance.get("description") + "> Annuler</a></td></tr>");--%>
+<%--                    }--%>
+<%--                }--%>
+<%--            %>--%>
+
+
             <%
                 List<Map<String, Object>> lstSeance = (List<Map<String, Object>>) request.getAttribute("lstSeance");
 
@@ -91,19 +109,15 @@
                         out.print("<tr><td>"+seance.get("numS")+"</td>");
                         out.print("<td>"+seance.get("date")+"</td>");
                         out.print("<td>"+seance.get("description")+"</td>");
-                        out.print("<td>"+seance.get("nb_reserve")+"</td>");
-//                    out.print("<td>"+seance.get("nbPasMachine")+"</td>");
+                        //out.print("<td>"+seance.get("nb_reserve")+"</td>");
+                        out.print("<td>"+tp.lstSeancesFinal((Integer ) seance.get("idTP"),(Date) seance.get("date"),
+                                (Integer ) seance.get("periode"))+"</td>");
+
                         out.print("<td><a class='bouton' href=ServletAnnulerCours?codeTP="+ tp.getCodeTp()
                                 + "&numS=" + seance.get("numS") + "&date=" + seance.get("date") + "&description=" +
                                 seance.get("description") + "> Annuler</a></td></tr>");
-
-
-//                    codeTP, numS, date, description, codeG
-////                    request.setAttribute("seance", seance);
-////                    request.getRequestDispatcher("/GestionMachine/ServletAnnulerCours").forward(request,response);
                     }
                 }
-
             %>
         </table>
         </br>
