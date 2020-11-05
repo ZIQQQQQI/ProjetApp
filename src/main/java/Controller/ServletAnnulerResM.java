@@ -14,6 +14,7 @@ import java.io.IOException;
 @WebServlet("/ServletAnnulerResM")
 public class ServletAnnulerResM extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setHeader("content-type", "text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         String date=request.getParameter("date");
         String periode=request.getParameter("periode");
