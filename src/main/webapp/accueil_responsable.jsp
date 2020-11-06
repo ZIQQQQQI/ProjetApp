@@ -32,7 +32,7 @@
         <ul class="navbar-nav mr-auto">
 
         </ul>
-            <a class="nav-link disabled" href="" style="color:#FFFFFF;">D&eacute;connexion</a>
+            <a class="nav-link disabled" href="index.jsp" style="color:#FFFFFF;">D&eacute;connexion</a>
         </div>
     </nav>
 
