@@ -24,7 +24,7 @@ public class ServletChercheSalle extends HttpServlet {
         List<Machine> machine;
         Utilisateur u=new Utilisateur();
         if(u.siRer(String.valueOf(id),date,periode)){
-            response.getWriter().print("<h3>Vous avez deja reserver pour ca</h3>");
+            response.getWriter().print("<h3 align=\"center\">Vous avez une r&eacute;servation pour cette p&eacute;riode!</h3>");
             response.addHeader("refresh", "3,URL = /GestionMachine/accueil.jsp");
         }else{
             List<Salle> list= s.trouveListeDeSalle(date,periode,id);

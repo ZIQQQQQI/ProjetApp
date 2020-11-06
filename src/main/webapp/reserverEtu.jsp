@@ -29,7 +29,7 @@
 <!-- Création de la barre de navigation -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #B22222;">
 
-    <a class="navbar-brand" href="accueil.html"><img src="Images/logo_grid.gif" alt="Logo ut1"></a>
+    <a class="navbar-brand" href="accueil.jsp"><img src="Images/logo_grid.gif" alt="Logo ut1"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -37,14 +37,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link disabled" href="accueil.html" style="color:#FFFFFF;">Mes r&eacute;servations</a>
+                <a class="nav-link disabled" href="accueil.jsp" style="color:#FFFFFF;">Mes r&eacute;servations</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="reclamation.html" style="color:#FFFFFF;">R&eacute;clamation</a>
             </li>
         </ul>
 
-        <a class="nav-link disabled" href="" style="color:#FFFFFF;">D&eacute;connexion</a>
+        <a class="nav-link disabled" href="index.jsp" style="color:#FFFFFF;">D&eacute;connexion</a>
 
     </div>
 </nav>

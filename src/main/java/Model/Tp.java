@@ -61,7 +61,7 @@ public class Tp {
     }
 
     public Long lstSeancesFinal(Integer codeTP, Date date, Integer periode){
-        String sql = "select count(r.identifiantU) as nb from allouer as a, reserver as r, utilisateur as u" +
+        String sql = "select count(distinct r.identifiantU) as nb from allouer as a, reserver as r, utilisateur as u" +
                 " where u.identifiantU = r.identifiantU and a.codeG = u.codeG and a.codeTP = ? and r.date = ? and r.periode =?" +
                 " and r.periode = a.periode";
         return (Long) this.jdbcTem.queryForList(sql,codeTP,date,periode).get(0).get("nb");
